@@ -1,35 +1,44 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-declare global {
-  interface Window {
-    ml?: (...args: unknown[]) => void;
-  }
-}
-
 export function MLEmbed({ formId }: { formId: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const trigger = () => {
-      if (typeof window !== "undefined" && typeof window.ml === "function") {
-        window.ml("account", "2411794");
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Ensure a fresh .ml-embedded div exists
+    container.innerHTML = `<div class="ml-embedded" data-form="${formId}"></div>`;
+
+    // Strip out any previously loaded ML scripts and globals so ML
+    // re-initialises completely rather than thinking it has already run.
+    document.querySelectorAll('script[data-ml]').forEach((s) => s.remove());
+    const w = window as Record<string, unknown>;
+    delete w["ml"];
+    delete w["MailerLiteObject"];
+
+    // Re-inject ML with a cache-busting timestamp so the browser
+    // fetches and executes it fresh every time this component mounts.
+    const script = document.createElement("script");
+    script.setAttribute("data-ml", "true");
+    script.async = true;
+    script.src = `https://assets.mailerlite.com/js/universal.js?_=${Date.now()}`;
+    script.onload = () => {
+      const ml = w["ml"] as ((...a: unknown[]) => void) | undefined;
+      if (typeof ml === "function") {
+        ml("account", "2411794");
       }
     };
+    document.head.appendChild(script);
 
-    if (typeof window !== "undefined" && typeof window.ml === "function") {
-      trigger();
-    } else {
-      const t = setInterval(() => {
-        if (typeof window.ml === "function") {
-          trigger();
-          clearInterval(t);
-        }
-      }, 100);
-      const timeout = setTimeout(() => clearInterval(t), 5000);
-      return () => { clearInterval(t); clearTimeout(timeout); };
-    }
-  }, []);
+    return () => {
+      script.remove();
+      delete w["ml"];
+      delete w["MailerLiteObject"];
+      if (container) container.innerHTML = "";
+    };
+  }, [formId]);
 
-  return <div ref={ref} className="ml-embedded" data-form={formId} />;
+  return <div ref={containerRef} />;
 }

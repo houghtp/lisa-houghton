@@ -26,7 +26,7 @@ export default function AboutPage() {
       <main className="flex-1 px-8 md:px-16 pt-16 md:pt-24 pb-20 md:pb-32">
 
         {/* ── INTRO ── */}
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           <p className="fade-up fade-up-1 text-xs tracking-widest uppercase mb-6" style={{ color: "var(--muted)", fontWeight: 400 }}>
             About
           </p>
@@ -57,10 +57,10 @@ export default function AboutPage() {
         </div>
 
         {/* ── DIVIDER ── */}
-        <div className="my-16 md:my-20" style={{ height: "1px", maxWidth: "48rem", background: "var(--border)" }} />
+        <div className="my-16 md:my-20" style={{ height: "1px", maxWidth: "64rem", background: "var(--border)" }} />
 
         {/* ── WHAT I BELIEVE ── */}
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           <p className="text-xs tracking-widest uppercase mb-8" style={{ color: "var(--muted)", fontWeight: 400 }}>
             What I believe
           </p>
@@ -84,10 +84,10 @@ export default function AboutPage() {
         </div>
 
         {/* ── DIVIDER ── */}
-        <div className="my-16 md:my-20" style={{ height: "1px", maxWidth: "48rem", background: "var(--border)" }} />
+        <div className="my-16 md:my-20" style={{ height: "1px", maxWidth: "64rem", background: "var(--border)" }} />
 
         {/* ── CTA ── */}
-        <div className="max-w-xl">
+        <div className="max-w-2xl">
           <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--muted)", fontWeight: 400 }}>
             Work with me
           </p>

@@ -40,7 +40,7 @@ export default function SignupPage() {
 
       {/* ── CONTENT ── */}
       <main className="flex-1 px-8 md:px-16 pt-16 md:pt-24 pb-20">
-        <div className="max-w-xl">
+        <div className="max-w-xl mx-auto">
           <p
             className="fade-up fade-up-1 text-xs tracking-widest uppercase mb-6"
             style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}

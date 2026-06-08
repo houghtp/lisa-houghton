@@ -171,29 +171,36 @@ export default function Home() {
           className="mx-8 md:mx-16 mb-20 md:mb-28 rounded-sm px-10 md:px-16 py-16 md:py-20"
           style={{ background: "#f2f0eb" }}
         >
-          <p className="text-xs tracking-widest uppercase mb-6" style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}>Newsletter</p>
-          <h2
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 300,
-              fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-              lineHeight: 1.15,
-              marginBottom: "1.2rem",
-              maxWidth: "28rem",
-            }}
-          >
-            Free portfolio &amp; CV tips<br />
-            <em style={{ fontStyle: "italic" }}>for new grads</em>
-          </h2>
-          <p className="mb-10 max-w-md text-sm leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            Practical advice from twenty years in the industry — straight to your inbox, no fluff.
-            Portfolio guidance, CV insight, and the things fashion courses don&rsquo;t teach you.
-          </p>
-          <MLEmbed formId="eiqW28" />
-          <p className="mt-5 text-xs leading-relaxed max-w-sm" style={{ color: "#9a9790" }}>
-            By joining you&rsquo;ll receive Lisa Houghton Studio&rsquo;s newsletter —
-            fashion career tips and occasional course news. Unsubscribe any time. We never share your details.
-          </p>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+            {/* Left: text */}
+            <div>
+              <p className="text-xs tracking-widest uppercase mb-6" style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}>Newsletter</p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 300,
+                  fontSize: "clamp(1.6rem, 3vw, 2.8rem)",
+                  lineHeight: 1.1,
+                  marginBottom: "1.2rem",
+                }}
+              >
+                Free portfolio &amp; CV tips<br />
+                <em style={{ fontStyle: "italic" }}>for new grads</em>
+              </h2>
+              <p className="text-sm leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
+                Practical advice from twenty years in the industry — straight to your inbox, no fluff.
+                Portfolio guidance, CV insight, and the things fashion courses don&rsquo;t teach you.
+              </p>
+            </div>
+            {/* Right: form */}
+            <div>
+              <MLEmbed formId="eiqW28" />
+              <p className="mt-5 text-xs leading-relaxed" style={{ color: "#9a9790" }}>
+                By joining you&rsquo;ll receive Lisa Houghton Studio&rsquo;s newsletter —
+                fashion career tips and occasional course news. Unsubscribe any time. We never share your details.
+              </p>
+            </div>
+          </div>
         </section>
       </main>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MLEmbed } from "./components/MLEmbed";
 
 const services = [
   {
@@ -188,7 +189,7 @@ export default function Home() {
             Practical advice from twenty years in the industry — straight to your inbox, no fluff.
             Portfolio guidance, CV insight, and the things fashion courses don&rsquo;t teach you.
           </p>
-          <div className="ml-embedded" data-form="eiqW28" />
+          <MLEmbed formId="eiqW28" />
           <p className="mt-5 text-xs leading-relaxed max-w-sm" style={{ color: "#9a9790" }}>
             By joining you&rsquo;ll receive Lisa Houghton Studio&rsquo;s newsletter —
             fashion career tips and occasional course news. Unsubscribe any time. We never share your details.

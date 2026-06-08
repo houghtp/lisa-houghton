@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Welcome — Lisa Houghton Studio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #f0ede8;
+      font-family: 'Jost', Arial, sans-serif;
+      font-weight: 300;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      width: 100%;
+      background-color: #f0ede8;
+      padding: 48px 16px;
+    }
+
+    .card {
+      max-width: 560px;
+      margin: 0 auto;
+      background-color: #fafaf8;
+    }
+
+    .card-header {
+      padding: 40px 48px 32px;
+      border-bottom: 1px solid #e8e8e4;
+    }
+
+    .wordmark {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .card-body {
+      padding: 40px 48px 48px;
+    }
+
+    .greeting {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 28px;
+    }
+
+    .greeting em {
+      font-style: italic;
+    }
+
+    p {
+      font-family: 'Jost', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #3a3a3a;
+      margin-bottom: 20px;
+    }
+
+    .tip-block {
+      border-left: 2px solid #1a1a1a;
+      margin: 32px 0;
+      padding: 4px 0 4px 20px;
+    }
+
+    .tip-block p {
+      color: #1a1a1a;
+      margin-bottom: 0;
+    }
+
+    .tip-label {
+      font-family: 'Jost', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      margin-bottom: 8px !important;
+    }
+
+    .sign-off {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid #e8e8e4;
+    }
+
+    .sign-off p {
+      margin-bottom: 4px;
+    }
+
+    .sign-off .name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .sign-off .site {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #6b6b6b;
+      text-decoration: none;
+    }
+
+    .card-footer {
+      padding: 24px 48px;
+      border-top: 1px solid #e8e8e4;
+      text-align: left;
+    }
+
+    .footer-text {
+      font-family: 'Jost', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: #9a9790;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .footer-text a {
+      color: #9a9790;
+      text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .card-header,
+      .card-body,
+      .card-footer { padding-left: 28px; padding-right: 28px; }
+      .greeting { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+
+      <!-- HEADER -->
+      <div class="card-header">
+        <a href="https://lisahoughtonstudio.com" class="wordmark">Lisa Houghton Studio</a>
+      </div>
+
+      <!-- BODY -->
+      <div class="card-body">
+
+        <h1 class="greeting">Welcome —<br><em>glad you're here.</em></h1>
+
+        <p>Hi {$name|default:"there"},</p>
+
+        <p>Thank you for signing up. I'm Lisa — I've spent twenty years designing for the fashion retail industry, and now I work with graduates and early-career designers who are trying to break in, stand out, and build careers they're proud of.</p>
+
+        <p>In this newsletter you'll get practical, honest advice on portfolios, CVs, and the parts of the industry that nobody teaches you at college. No fluff, no filler — just the stuff that actually makes a difference when you're starting out.</p>
+
+        <!-- TIP BLOCK -->
+        <div class="tip-block">
+          <p class="tip-label">First tip</p>
+          <p>The biggest mistake I see on graduate portfolios: too much process, not enough outcome. Recruiters spend seconds on each one. Lead with your strongest finished work — not your sketchbooks.</p>
+        </div>
+
+        <p>More soon.</p>
+
+        <!-- SIGN OFF -->
+        <div class="sign-off">
+          <p>With thanks,</p>
+          <span class="name">Lisa Houghton</span>
+          <a href="https://lisahoughtonstudio.com" class="site">lisahoughtonstudio.com</a>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="card-footer">
+        <p class="footer-text">
+          You're receiving this because you signed up at lisahoughtonstudio.com.<br>
+          <a href="{$unsubscribe}">Unsubscribe</a> &nbsp;·&nbsp; Lisa Houghton Studio, London, UK
+        </p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,3 +1,28 @@
+import Link from "next/link";
+
+const services = [
+  {
+    title: "Mentoring",
+    body: "One-to-one guidance for graduates and early-career designers finding their direction.",
+    href: "/mentoring",
+  },
+  {
+    title: "Portfolio evaluations",
+    body: "An honest, industry-trained eye on the work that gets you hired.",
+    href: "/portfolio-evaluation",
+  },
+  {
+    title: "CV reviews",
+    body: "Make the page that lands the interview actually work.",
+    href: "/cv-review",
+  },
+  {
+    title: "Freelance design",
+    body: "Available for select retail design projects and consultancy.",
+    href: "/freelance-design",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen" style={{ background: "var(--background)", color: "var(--foreground)" }}>
@@ -11,15 +36,16 @@ export default function Home() {
           Lisa Houghton Studio
         </span>
         <nav className="flex gap-8 text-xs tracking-widest uppercase" style={{ color: "var(--muted)", fontWeight: 400 }}>
-          <a href="#about" className="hover:opacity-60 transition-opacity duration-200">About</a>
+          <Link href="/about" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>About</Link>
           <a href="#services" className="hover:opacity-60 transition-opacity duration-200">Work with me</a>
-          <a href="#signup" className="hover:opacity-60 transition-opacity duration-200">Newsletter</a>
+          <Link href="/journal" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Journal</Link>
+          <Link href="/signup" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Newsletter</Link>
         </nav>
       </header>
 
       {/* ── HERO ── */}
       <main className="flex-1 flex flex-col">
-        <section className="px-8 md:px-16 pt-20 md:pt-32 pb-12 md:pb-20 w-full">
+        <section id="about" className="px-8 md:px-16 pt-20 md:pt-32 pb-12 md:pb-20 w-full">
           <p
             className="fade-up fade-up-2 mb-6 text-xs tracking-widest uppercase"
             style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}
@@ -50,6 +76,16 @@ export default function Home() {
             with graduates and early-career designers: refining portfolios, sharpening CVs, and
             mentoring the people who&rsquo;ll define what comes next.
           </p>
+
+          <div className="fade-up fade-up-5 mt-8">
+            <Link
+              href="/about"
+              className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity duration-200"
+              style={{ color: "var(--foreground)", fontWeight: 400, textDecoration: "none", borderBottom: "1px solid var(--foreground)", paddingBottom: "2px" }}
+            >
+              About Lisa
+            </Link>
+          </div>
         </section>
 
         {/* ── THIN RULE ── */}
@@ -65,28 +101,12 @@ export default function Home() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-0">
-            {[
-              {
-                title: "Mentoring",
-                body: "One-to-one guidance for graduates and early-career designers finding their direction.",
-              },
-              {
-                title: "Portfolio evaluations",
-                body: "An honest, industry-trained eye on the work that gets you hired.",
-              },
-              {
-                title: "CV reviews",
-                body: "Make the page that lands the interview actually work.",
-              },
-              {
-                title: "Freelance design",
-                body: "Available for select retail design projects and consultancy.",
-              },
-            ].map((service, i) => (
-              <div
+            {services.map((service, i) => (
+              <Link
                 key={service.title}
-                className={`fade-up fade-up-${Math.min(i + 4, 6)} py-10 md:py-12 pr-8 md:pr-16`}
-                style={{ borderTop: "1px solid var(--border)" }}
+                href={service.href}
+                className={`fade-up fade-up-${Math.min(i + 4, 6)} py-10 md:py-12 pr-8 md:pr-16 group block`}
+                style={{ borderTop: "1px solid var(--border)", textDecoration: "none", color: "inherit" }}
               >
                 <h2
                   style={{
@@ -95,15 +115,52 @@ export default function Home() {
                     fontSize: "1.5rem",
                     letterSpacing: "0.01em",
                     marginBottom: "0.6rem",
+                    transition: "opacity 0.2s",
                   }}
+                  className="group-hover:opacity-60"
                 >
                   {service.title}
                 </h2>
-                <p style={{ color: "var(--muted)", fontSize: "0.9rem", lineHeight: 1.75, fontWeight: 300 }}>
+                <p style={{ color: "var(--muted)", fontSize: "0.9rem", lineHeight: 1.75, fontWeight: 300, marginBottom: "1.2rem" }}>
                   {service.body}
                 </p>
-              </div>
+                <span
+                  className="text-xs tracking-widest uppercase group-hover:opacity-60 transition-opacity duration-200"
+                  style={{ color: "var(--foreground)", fontWeight: 400, borderBottom: "1px solid var(--foreground)", paddingBottom: "2px" }}
+                >
+                  Find out more
+                </span>
+              </Link>
             ))}
+          </div>
+        </section>
+
+        {/* ── JOURNAL TEASER ── */}
+        <section className="px-8 md:px-16 pb-20 md:pb-28">
+          <div className="py-12 md:py-16" style={{ borderTop: "1px solid var(--border)" }}>
+            <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--muted)", fontWeight: 400 }}>Journal</p>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 300,
+                fontSize: "clamp(1.8rem, 4vw, 3rem)",
+                lineHeight: 1.05,
+                marginBottom: "1rem",
+              }}
+            >
+              Life of a Designer<br />
+              <em style={{ fontStyle: "italic" }}>— an interview series</em>
+            </h2>
+            <p className="mb-8 max-w-md text-sm leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
+              Candid conversations with designers, directors, and creatives from across the industry.
+            </p>
+            <Link
+              href="/journal"
+              className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity duration-200"
+              style={{ color: "var(--foreground)", fontWeight: 400, textDecoration: "none", borderBottom: "1px solid var(--foreground)", paddingBottom: "2px" }}
+            >
+              Read the journal
+            </Link>
           </div>
         </section>
 
@@ -113,12 +170,7 @@ export default function Home() {
           className="mx-8 md:mx-16 mb-20 md:mb-28 rounded-sm px-10 md:px-16 py-16 md:py-20"
           style={{ background: "#f2f0eb" }}
         >
-          <p
-            className="text-xs tracking-widest uppercase mb-6"
-            style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Newsletter
-          </p>
+          <p className="text-xs tracking-widest uppercase mb-6" style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}>Newsletter</p>
           <h2
             style={{
               fontFamily: "var(--font-display)",
@@ -132,53 +184,15 @@ export default function Home() {
             Free portfolio &amp; CV tips<br />
             <em style={{ fontStyle: "italic" }}>for new grads</em>
           </h2>
-          <p
-            className="mb-10 max-w-md text-sm leading-loose"
-            style={{ color: "var(--muted)", fontWeight: 300 }}
-          >
+          <p className="mb-10 max-w-md text-sm leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
             Practical advice from twenty years in the industry — straight to your inbox, no fluff.
             Portfolio guidance, CV insight, and the things fashion courses don&rsquo;t teach you.
           </p>
-
-          {/* ── MAILERLITE EMBED PLACEHOLDER ── */}
-          {/* Replace this block with the MailerLite embed snippet when available */}
-          <div className="max-w-sm">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 px-5 py-3 text-sm border rounded-none outline-none focus:border-foreground transition-colors duration-200"
-                style={{
-                  background: "transparent",
-                  border: "1px solid #c8c4bb",
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 300,
-                  color: "var(--foreground)",
-                }}
-                disabled
-              />
-              <button
-                className="px-7 py-3 text-xs tracking-widest uppercase transition-opacity duration-200 hover:opacity-70"
-                style={{
-                  background: "var(--foreground)",
-                  color: "var(--background)",
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 400,
-                  letterSpacing: "0.12em",
-                  cursor: "not-allowed",
-                  opacity: 0.5,
-                }}
-                disabled
-              >
-                Join the list
-              </button>
-            </div>
-            <p className="mt-4 text-xs leading-relaxed" style={{ color: "#9a9790" }}>
-              <em>Signup coming soon.</em>{' '}By joining you&rsquo;ll receive Lisa Houghton Studio&rsquo;s newsletter —
-              fashion career tips and occasional course news. Unsubscribe any time. We never share your details.
-            </p>
-          </div>
-          {/* ── END PLACEHOLDER ── */}
+          <div className="ml-embedded" data-form="eiqW28" />
+          <p className="mt-5 text-xs leading-relaxed max-w-sm" style={{ color: "#9a9790" }}>
+            By joining you&rsquo;ll receive Lisa Houghton Studio&rsquo;s newsletter —
+            fashion career tips and occasional course news. Unsubscribe any time. We never share your details.
+          </p>
         </section>
       </main>
 
@@ -192,9 +206,10 @@ export default function Home() {
         </span>
         <div className="flex gap-6">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Instagram</a>
-          <a href="mailto:hello@lisahoughtonstudio.com" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Contact</a>
+          <a href="mailto:lisa@lisahoughtonstudio.com" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Contact</a>
         </div>
         <span style={{ fontSize: "0.7rem" }}>&copy; Lisa Houghton Studio 2026</span>
       </footer>
-
- 
+    </div>
+  );
+}

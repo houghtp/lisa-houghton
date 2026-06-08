@@ -8,34 +8,46 @@ export function MLEmbed({ formId }: { formId: string }) {
     const container = containerRef.current;
     if (!container) return;
 
-    // Ensure a fresh .ml-embedded div exists
+    // Fresh target div
     container.innerHTML = `<div class="ml-embedded" data-form="${formId}"></div>`;
 
-    // Strip out any previously loaded ML scripts and globals so ML
-    // re-initialises completely rather than thinking it has already run.
-    document.querySelectorAll('script[data-ml]').forEach((s) => s.remove());
+    // Wipe every ML global so the script thinks it has never run
     const w = window as Record<string, unknown>;
-    delete w["ml"];
-    delete w["MailerLiteObject"];
+    (["ml", "MailerLiteObject", "mlb2", "ml_webforms"] as const).forEach(
+      (k) => delete w[k]
+    );
 
-    // Re-inject ML with a cache-busting timestamp so the browser
-    // fetches and executes it fresh every time this component mounts.
-    const script = document.createElement("script");
-    script.setAttribute("data-ml", "true");
-    script.async = true;
-    script.src = `https://assets.mailerlite.com/js/universal.js?_=${Date.now()}`;
-    script.onload = () => {
-      const ml = w["ml"] as ((...a: unknown[]) => void) | undefined;
-      if (typeof ml === "function") {
-        ml("account", "2411794");
-      }
-    };
-    document.head.appendChild(script);
+    // Remove any stale ML script tags
+    document.querySelectorAll("script[data-ml-embed]").forEach((s) =>
+      s.remove()
+    );
+
+    // Step 1 — set up the queue and enqueue the account call (synchronous,
+    // must happen before the external script so ML reads the queue on load)
+    const initScript = document.createElement("script");
+    initScript.setAttribute("data-ml-embed", "true");
+    initScript.textContent = `
+      window.ml = window.ml || function() {
+        (window.ml.q = window.ml.q || []).push(arguments);
+      };
+      window.ml('account', '2411794');
+    `;
+    document.head.appendChild(initScript);
+
+    // Step 2 — load the ML library (reads the queue, renders the form)
+    const extScript = document.createElement("script");
+    extScript.setAttribute("data-ml-embed", "true");
+    extScript.async = true;
+    extScript.src = "https://assets.mailerlite.com/js/universal.js";
+    document.head.appendChild(extScript);
 
     return () => {
-      script.remove();
-      delete w["ml"];
-      delete w["MailerLiteObject"];
+      document.querySelectorAll("script[data-ml-embed]").forEach((s) =>
+        s.remove()
+      );
+      (["ml", "MailerLiteObject", "mlb2", "ml_webforms"] as const).forEach(
+        (k) => delete w[k]
+      );
       if (container) container.innerHTML = "";
     };
   }, [formId]);

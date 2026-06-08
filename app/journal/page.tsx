@@ -43,7 +43,7 @@ export default function JournalPage() {
           <Link href="/about" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>About</Link>
           <Link href="/#services" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Work with me</Link>
           <Link href="/journal" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--foreground)", textDecoration: "none" }}>Journal</Link>
-          <Link href="/signup" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Newsletter</Link>
+          <a href="/signup" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Newsletter</a>
         </nav>
       </header>
 
@@ -109,9 +109,9 @@ export default function JournalPage() {
           <p className="text-base leading-loose mb-6" style={{ color: "var(--muted)", fontWeight: 300 }}>
             New interviews and essays land in the newsletter first. Join to get them straight to your inbox.
           </p>
-          <Link href="/signup" className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--foreground)", fontWeight: 400, textDecoration: "none", borderBottom: "1px solid var(--foreground)", paddingBottom: "2px" }}>
+          <a href="/signup" className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--foreground)", fontWeight: 400, textDecoration: "none", borderBottom: "1px solid var(--foreground)", paddingBottom: "2px" }}>
             Join the newsletter
-          </Link>
+          </a>
         </div>
       </main>
 

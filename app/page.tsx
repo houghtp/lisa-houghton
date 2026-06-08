@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MLEmbed } from "./components/MLEmbed";
 
 const services = [
   {
@@ -136,72 +135,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── JOURNAL TEASER ── */}
-        <section className="px-8 md:px-16 pb-20 md:pb-28">
-          <div className="py-12 md:py-16" style={{ borderTop: "1px solid var(--border)" }}>
-            <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--muted)", fontWeight: 400 }}>Journal</p>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 300,
-                fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                lineHeight: 1.05,
-                marginBottom: "1rem",
-              }}
-            >
-              Life of a Designer<br />
-              <em style={{ fontStyle: "italic" }}>— an interview series</em>
-            </h2>
-            <p className="mb-8 max-w-md text-sm leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
-              Candid conversations with designers, directors, and creatives from across the industry.
-            </p>
-            <Link
-              href="/journal"
-              className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity duration-200"
-              style={{ color: "var(--foreground)", fontWeight: 400, textDecoration: "none", borderBottom: "1px solid var(--foreground)", paddingBottom: "2px" }}
-            >
-              Read the journal
-            </Link>
-          </div>
-        </section>
-
-        {/* ── SIGNUP ── */}
-        <section
-          id="signup"
-          className="mx-8 md:mx-16 mb-20 md:mb-28 rounded-sm px-10 md:px-16 py-16 md:py-20"
-          style={{ background: "#f2f0eb" }}
-        >
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-            {/* Left: text */}
-            <div>
-              <p className="text-xs tracking-widest uppercase mb-6" style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}>Newsletter</p>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 300,
-                  fontSize: "clamp(1.6rem, 3vw, 2.8rem)",
-                  lineHeight: 1.1,
-                  marginBottom: "1.2rem",
-                }}
-              >
-                Free portfolio &amp; CV tips<br />
-                <em style={{ fontStyle: "italic" }}>for new grads</em>
-              </h2>
-              <p className="text-sm leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
-                Practical advice from twenty years in the industry — straight to your inbox, no fluff.
-                Portfolio guidance, CV insight, and the things fashion courses don&rsquo;t teach you.
-              </p>
-            </div>
-            {/* Right: form */}
-            <div>
-              <MLEmbed formId="eiqW28" />
-              <p className="mt-5 text-xs leading-relaxed" style={{ color: "#9a9790" }}>
-                By joining you&rsquo;ll receive Lisa Houghton Studio&rsquo;s newsletter —
-                fashion career tips and occasional course news. Unsubscribe any time. We never share your details.
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* ── FOOTER ── */}

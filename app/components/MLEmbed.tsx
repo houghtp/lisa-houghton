@@ -12,7 +12,7 @@ export function MLEmbed({ formId }: { formId: string }) {
     container.innerHTML = `<div class="ml-embedded" data-form="${formId}"></div>`;
 
     // Wipe every ML global so the script thinks it has never run
-    const w = window as Record<string, unknown>;
+    const w = window as unknown as Record<string, unknown>;
     (["ml", "MailerLiteObject", "mlb2", "ml_webforms"] as const).forEach(
       (k) => delete w[k]
     );

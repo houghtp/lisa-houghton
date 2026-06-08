@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MLEmbed } from "../components/MLEmbed";
 
 export const metadata: Metadata = {
   title: "Newsletter — Lisa Houghton Studio",
@@ -29,13 +30,12 @@ export default function SignupPage() {
         >
           Lisa Houghton Studio
         </Link>
-        <Link
-          href="/"
-          className="hover:opacity-60 transition-opacity duration-200 text-xs tracking-widest uppercase"
-          style={{ color: "var(--muted)", fontWeight: 400, textDecoration: "none" }}
-        >
-          ← Home
-        </Link>
+        <nav className="flex gap-8 text-xs tracking-widest uppercase" style={{ color: "var(--muted)", fontWeight: 400 }}>
+          <Link href="/about" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>About</Link>
+          <Link href="/#services" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Work with me</Link>
+          <Link href="/journal" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Journal</Link>
+          <Link href="/signup" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--foreground)", textDecoration: "none" }}>Newsletter</Link>
+        </nav>
       </header>
 
       {/* ── CONTENT ── */}
@@ -72,24 +72,28 @@ export default function SignupPage() {
 
           {/* ── MAILERLITE EMBED ── */}
           <div className="fade-up fade-up-4">
-            <div className="ml-embedded" data-form="eiqW28" />
+            <MLEmbed formId="eiqW28" />
             <p className="mt-5 text-xs leading-relaxed" style={{ color: "#9a9790", maxWidth: "28rem" }}>
               By joining you&rsquo;ll receive Lisa Houghton Studio&rsquo;s newsletter —
               fashion career tips and occasional course news. Unsubscribe any time. We never share your details.
             </p>
           </div>
-          {/* ── END MAILERLITE ── */}
         </div>
       </main>
 
       {/* ── FOOTER ── */}
       <footer
-        className="px-8 md:px-16 py-8"
-        style={{ borderTop: "1px solid var(--border)", color: "var(--muted)" }}
+        className="px-8 md:px-16 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs"
+        style={{ borderTop: "1px solid var(--border)", color: "var(--muted)", fontWeight: 300 }}
       >
-        <span style={{ fontSize: "0.7rem", fontWeight: 300 }}>
-          &copy; Lisa Houghton Studio 2026
+        <span style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "0.85rem", letterSpacing: "0.06em" }}>
+          Lisa Houghton Studio
         </span>
+        <div className="flex gap-6">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Instagram</a>
+          <a href="mailto:lisa@lisahoughtonstudio.com" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Contact</a>
+        </div>
+        <span style={{ fontSize: "0.7rem" }}>&copy; Lisa Houghton Studio 2026</span>
       </footer>
     </div>
   );

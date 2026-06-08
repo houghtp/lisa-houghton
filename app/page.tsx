@@ -19,7 +19,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <main className="flex-1 flex flex-col">
-        <section className="px-8 md:px-16 pt-20 md:pt-32 pb-24 md:pb-40 w-full">
+        <section className="px-8 md:px-16 pt-20 md:pt-32 pb-12 md:pb-20 w-full">
           <p
             className="fade-up fade-up-2 mb-6 text-xs tracking-widest uppercase"
             style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}
@@ -56,7 +56,7 @@ export default function Home() {
         <div className="fade-up fade-up-4 mx-8 md:mx-16" style={{ height: "1px", background: "var(--border)" }} />
 
         {/* ── SERVICES ── */}
-        <section id="services" className="px-8 md:px-16 py-20 md:py-28">
+        <section id="services" className="px-8 md:px-16 pt-12 md:pt-16 pb-20 md:pb-28">
           <p
             className="fade-up fade-up-4 text-xs tracking-widest uppercase mb-6"
             style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}
@@ -123,7 +123,7 @@ export default function Home() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 300,
-              fontSize: "clamp(1.8rem, 4vw, 3rem)",
+              fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
               lineHeight: 1.15,
               marginBottom: "1.2rem",
               maxWidth: "28rem",
@@ -197,6 +197,4 @@ export default function Home() {
         <span style={{ fontSize: "0.7rem" }}>&copy; Lisa Houghton Studio 2026</span>
       </footer>
 
-    </div>
-  );
-}
+ 

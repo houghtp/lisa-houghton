@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-export const revalidate = 0; // always SSR — live Sanity data on every visit;
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -9,6 +8,8 @@ import { Nav } from "../../components/Nav";
 import { Footer } from "../../components/Footer";
 import { MLEmbed } from "../../components/MLEmbed";
 import {
+
+export const revalidate = 0; // always SSR — live Sanity data on every visit
   client,
   postsByCategoryQuery,
   postBySlugQuery,

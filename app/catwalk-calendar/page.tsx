@@ -3,6 +3,8 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { client, fashionEventsQuery } from "../../lib/sanity";
 
+export const revalidate = 3600; // refresh from Sanity every hour
+
 export const metadata: Metadata = {
   title: "Catwalk Calendar — Lisa Houghton Studio",
   description:

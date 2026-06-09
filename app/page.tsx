@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Nav } from "./components/Nav";
+import { Footer } from "./components/Footer";
 
 const services = [
   {
@@ -27,21 +29,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen" style={{ background: "var(--background)", color: "var(--foreground)" }}>
 
-      {/* ── NAV ── */}
-      <header className="fade-up fade-up-1 w-full px-8 md:px-16 pt-10 pb-6 flex items-center justify-between">
-        <span
-          style={{ fontFamily: "var(--font-display)", letterSpacing: "0.12em", fontSize: "0.8rem", fontWeight: 500 }}
-          className="uppercase tracking-widest"
-        >
-          Lisa Houghton Studio
-        </span>
-        <nav className="flex gap-8 text-xs tracking-widest uppercase" style={{ color: "var(--muted)", fontWeight: 400 }}>
-          <Link href="/about" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>About</Link>
-          <a href="#services" className="hover:opacity-60 transition-opacity duration-200">Work with me</a>
-          <Link href="/journal" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Journal</Link>
-          <a href="/signup" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Newsletter</a>
-        </nav>
-      </header>
+      <Nav active="/" />
 
       {/* ── HERO ── */}
       <main className="flex-1 flex flex-col">
@@ -138,19 +126,7 @@ export default function Home() {
       </main>
 
       {/* ── FOOTER ── */}
-      <footer
-        className="px-8 md:px-16 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs"
-        style={{ borderTop: "1px solid var(--border)", color: "var(--muted)", fontWeight: 300 }}
-      >
-        <span style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "0.85rem", letterSpacing: "0.06em" }}>
-          Lisa Houghton Studio
-        </span>
-        <div className="flex gap-6">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Instagram</a>
-          <a href="mailto:lisa@lisahoughtonstudio.com" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Contact</a>
-        </div>
-        <span style={{ fontSize: "0.7rem" }}>&copy; Lisa Houghton Studio 2026</span>
-      </footer>
+      <Footer />
     </div>
   );
 }

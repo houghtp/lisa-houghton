@@ -1,57 +1,104 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import { Nav } from "../components/Nav";
+import { Footer } from "../components/Footer";
+import { MLEmbed } from "../components/MLEmbed";
+import { client, allPostsQuery, urlForImage } from "../../lib/sanity";
 
 export const metadata: Metadata = {
   title: "Journal — Lisa Houghton Studio",
-  description: "Life of a Designer — candid conversations with fashion designers, directors, and creatives from across the industry.",
+  description:
+    "Essays, industry insights, and conversations with designers — from inside the fashion industry.",
 };
 
-const interviews = [
-  {
-    episode: "Coming soon",
-    name: "Interview 01",
-    role: "Senior Designer, London",
-    excerpt: "On building a career without compromising what you actually want from it.",
-    status: "soon",
-  },
-  {
-    episode: "Coming soon",
-    name: "Interview 02",
-    role: "Creative Director",
-    excerpt: "The decisions that define a creative career — and the ones you can&rsquo;t take back.",
-    status: "soon",
-  },
-  {
-    episode: "Coming soon",
-    name: "Interview 03",
-    role: "Freelance Designer",
-    excerpt: "Why she left a full-time role at 28 and never went back.",
-    status: "soon",
-  },
+const TABS = [
+  { label: "All", href: "/journal", slug: null },
+  { label: "The Week in Fashion", href: "/journal/the-week-in-fashion", slug: "the-week-in-fashion" },
+  { label: "Industry Insights", href: "/journal/industry-insights", slug: "industry-insights" },
+  { label: "Life of a Designer", href: "/journal/life-of-a-designer", slug: "life-of-a-designer" },
 ];
 
-export default function JournalPage() {
-  return (
-    <div className="flex flex-col min-h-screen" style={{ background: "var(--background)", color: "var(--foreground)" }}>
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
-      {/* ── NAV ── */}
-      <header className="w-full px-8 md:px-16 pt-10 pb-6 flex items-center justify-between">
-        <Link href="/" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.12em", fontSize: "0.8rem", fontWeight: 500, textDecoration: "none", color: "var(--foreground)" }} className="uppercase tracking-widest hover:opacity-60 transition-opacity duration-200">
-          Lisa Houghton Studio
-        </Link>
-        <nav className="flex gap-8 text-xs tracking-widest uppercase" style={{ color: "var(--muted)", fontWeight: 400 }}>
-          <Link href="/about" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>About</Link>
-          <Link href="/#services" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Work with me</Link>
-          <Link href="/journal" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--foreground)", textDecoration: "none" }}>Journal</Link>
-          <a href="/signup" className="hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--muted)", textDecoration: "none" }}>Newsletter</a>
-        </nav>
-      </header>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function PostCard({ post }: { post: any }) {
+  const imageUrl = post.coverImage
+    ? urlForImage(post.coverImage).width(800).height(500).fit("crop").url()
+    : null;
+  return (
+    <Link
+      href={`/journal/${post.slug.current}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+      className="group block"
+    >
+      {imageUrl && (
+        <div style={{ position: "relative", aspectRatio: "8/5", marginBottom: "1.25rem", overflow: "hidden" }}>
+          <Image
+            src={imageUrl}
+            alt={post.coverImage?.alt || post.title}
+            fill
+            style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
+            className="group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      )}
+      <p
+        className="text-xs tracking-widest uppercase mb-2"
+        style={{ color: "var(--muted)", fontWeight: 400 }}
+      >
+        {post.category}
+        {post.publishedAt && (
+          <span style={{ marginLeft: "1rem" }}>{formatDate(post.publishedAt)}</span>
+        )}
+      </p>
+      <h2
+        style={{
+          fontFamily: "var(--font-display)",
+          fontWeight: 400,
+          fontSize: "1.3rem",
+          lineHeight: 1.2,
+          marginBottom: "0.6rem",
+          transition: "opacity 0.2s",
+        }}
+        className="group-hover:opacity-60"
+      >
+        {post.title}
+      </h2>
+      {post.excerpt && (
+        <p style={{ color: "var(--muted)", fontSize: "0.875rem", lineHeight: 1.75, fontWeight: 300 }}>
+          {post.excerpt}
+        </p>
+      )}
+    </Link>
+  );
+}
+
+export default async function JournalPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const posts: any[] = await client.fetch(allPostsQuery);
+
+  return (
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ background: "var(--background)", color: "var(--foreground)" }}
+    >
+      <Nav active="/journal" />
 
       <main className="flex-1 px-8 md:px-16 pt-16 md:pt-24 pb-20 md:pb-32">
-
-        {/* ── HEADER ── */}
-        <div className="max-w-3xl mb-16 md:mb-24">
-          <p className="fade-up fade-up-1 text-xs tracking-widest uppercase mb-6" style={{ color: "var(--muted)", fontWeight: 400 }}>
+        {/* Header */}
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <p
+            className="fade-up fade-up-1 text-xs tracking-widest uppercase mb-6"
+            style={{ color: "var(--muted)", fontWeight: 400 }}
+          >
             Journal
           </p>
           <h1
@@ -65,64 +112,76 @@ export default function JournalPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Life of a<br /><em style={{ fontStyle: "italic" }}>Designer</em>
+            From the<br />
+            <em style={{ fontStyle: "italic" }}>studio</em>
           </h1>
-          <p className="fade-up fade-up-3 text-base md:text-lg leading-loose" style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}>
-            Candid conversations with designers, directors, and creatives from across the industry — on careers, craft, and what nobody tells you at college.
+          <p
+            className="fade-up fade-up-3 text-base md:text-lg leading-loose"
+            style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}
+          >
+            Essays, industry insights, and conversations from inside fashion.
           </p>
         </div>
 
-        {/* ── INTERVIEW GRID ── */}
-        <div style={{ borderTop: "1px solid var(--border)" }}>
-          {interviews.map((item, i) => (
-            <div
-              key={i}
-              className={`fade-up fade-up-${Math.min(i + 3, 6)} py-10 md:py-12`}
-              style={{ borderBottom: "1px solid var(--border)", display: "grid", gridTemplateColumns: "1fr auto", gap: "2rem", alignItems: "start" }}
+        {/* Category tabs */}
+        <div
+          className="flex gap-8 mb-12 overflow-x-auto"
+          style={{ borderBottom: "1px solid var(--border)" }}
+        >
+          {TABS.map((tab) => (
+            <Link
+              key={tab.label}
+              href={tab.href}
+              className="text-xs tracking-widest uppercase whitespace-nowrap pb-4 transition-opacity hover:opacity-60"
+              style={{
+                textDecoration: "none",
+                color: "var(--foreground)",
+                borderBottom: !tab.slug ? "1px solid var(--foreground)" : "none",
+                marginBottom: "-1px",
+                fontWeight: 400,
+              }}
             >
-              <div>
-                <p className="text-xs tracking-widest uppercase mb-3" style={{ color: "var(--muted)", fontWeight: 400 }}>
-                  {item.episode}
-                </p>
-                <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(1.4rem, 3vw, 2rem)", marginBottom: "0.3rem" }}>
-                  {item.name}
-                </h2>
-                <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--muted)", fontWeight: 400 }}>
-                  {item.role}
-                </p>
-                <p style={{ color: "var(--muted)", fontSize: "0.9rem", lineHeight: 1.75, fontWeight: 300, maxWidth: "44rem" }} dangerouslySetInnerHTML={{ __html: item.excerpt }} />
-              </div>
-              <div className="pt-1" style={{ whiteSpace: "nowrap" }}>
-                <span className="text-xs tracking-widest uppercase" style={{ color: "#c8c4bb", fontWeight: 400 }}>
-                  Coming soon
-                </span>
-              </div>
-            </div>
+              {tab.label}
+            </Link>
           ))}
         </div>
 
-        {/* ── NEWSLETTER CTA ── */}
-        <div className="mt-16 md:mt-20 max-w-xl">
-          <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--muted)", fontWeight: 400 }}>
+        {/* Post grid */}
+        {posts.length === 0 ? (
+          <p style={{ color: "var(--muted)", fontWeight: 300 }}>
+            Posts coming soon.
+          </p>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+            {posts.map((post) => (
+              <PostCard key={post._id} post={post} />
+            ))}
+          </div>
+        )}
+
+        {/* Newsletter embed */}
+        <div
+          className="mt-24 md:mt-32 pt-16"
+          style={{ borderTop: "1px solid var(--border)" }}
+        >
+          <p
+            className="text-xs tracking-widest uppercase mb-4"
+            style={{ color: "var(--muted)", fontWeight: 400 }}
+          >
             Don&rsquo;t miss an issue
           </p>
-          <p className="text-base leading-loose mb-6" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            New interviews and essays land in the newsletter first. Join to get them straight to your inbox.
+          <p
+            className="text-base leading-loose mb-8 max-w-lg"
+            style={{ color: "var(--muted)", fontWeight: 300 }}
+          >
+            New essays and interviews arrive in the newsletter first. Join to get
+            them straight to your inbox.
           </p>
-          <a href="/signup" className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity duration-200" style={{ color: "var(--foreground)", fontWeight: 400, textDecoration: "none", borderBottom: "1px solid var(--foreground)", paddingBottom: "2px" }}>
-            Join the newsletter
-          </a>
+          <MLEmbed formId="eiqW28" />
         </div>
       </main>
 
-      <footer className="px-8 md:px-16 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs" style={{ borderTop: "1px solid var(--border)", color: "var(--muted)", fontWeight: 300 }}>
-        <span style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "0.85rem", letterSpacing: "0.06em" }}>Lisa Houghton Studio</span>
-        <div className="flex gap-6">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Instagram</a>
-          <a href="mailto:lisa@lisahoughtonstudio.com" className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase" style={{ fontSize: "0.7rem", color: "var(--muted)", textDecoration: "none" }}>Contact</a>
-        </div>
-        <span style={{ fontSize: "0.7rem" }}>&copy; Lisa Houghton Studio 2026</span>
-      </footer>
+      <Footer />
     </div>
   );
 }

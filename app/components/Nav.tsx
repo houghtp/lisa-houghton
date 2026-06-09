@@ -8,6 +8,8 @@ const NAV_LINKS = [
   { href: "/#services", label: "Work with me", exact: true },
   { href: "/journal", label: "Journal", exact: false },
   { href: "/life-of-a-designer", label: "Life of a Designer", exact: true },
+  { href: "/portfolio", label: "Portfolio", exact: true },
+  { href: "/jobs", label: "Jobs", exact: true },
   { href: "/catwalk-calendar", label: "Calendar", exact: true },
   { href: "/signup", label: "Newsletter", exact: true },
 ];

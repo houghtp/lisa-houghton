@@ -9,7 +9,6 @@ import { Footer } from "../../components/Footer";
 import { MLEmbed } from "../../components/MLEmbed";
 import {
 
-export const revalidate = 0; // always SSR — live Sanity data on every visit
   client,
   postsByCategoryQuery,
   postBySlugQuery,
@@ -17,6 +16,8 @@ export const revalidate = 0; // always SSR — live Sanity data on every visit
   urlForImage,
   CATEGORY_MAP,
 } from "../../../lib/sanity";
+
+export const revalidate = 0; // always SSR — live Sanity data on every visit
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 

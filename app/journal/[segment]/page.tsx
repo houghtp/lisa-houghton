@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const revalidate = 3600;
+export const revalidate = 0; // always SSR — live Sanity data on every visit;
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";

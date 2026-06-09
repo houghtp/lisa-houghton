@@ -38,3 +38,16 @@ export const CATEGORY_MAP: Record<string, string> = {
   "industry-insights": "Industry Insights",
   "life-of-a-designer": "Life of a Designer",
 };
+
+export const portfolioQuery = groq\`*[_type == "portfolioWork"] | order(order asc, _createdAt desc) {
+  _id, title, employer, season, category, description, images, featured, order
+}\`;
+
+export const portfolioFeaturedQuery = groq\`*[_type == "portfolioWork" && featured == true] | order(order asc) {
+  _id, title, employer, season, category, description, images, order
+}\`;
+
+export const jobListingsQuery = groq\`*[_type == "jobListing" && active == true] | order(featured desc, postedAt desc) {
+  _id, title, company, location, jobType, level, salary, sourceUrl, sourceName, lisasNote, deadline, postedAt, featured
+}\`;
+

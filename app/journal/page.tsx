@@ -4,9 +4,9 @@ import Image from "next/image";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { MLEmbed } from "../components/MLEmbed";
-export const revalidate = 0; // always SSR — live Sanity data on every visit;
-
 import { client, allPostsQuery, urlForImage } from "../../lib/sanity";
+
+export const revalidate = 0; // always SSR — live Sanity data on every visit
 
 export const metadata: Metadata = {
   title: "Journal — Lisa Houghton Studio",

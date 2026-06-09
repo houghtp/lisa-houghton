@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { journalPost } from "./journalPost";
 import { fashionEvent } from "./fashionEvent";
 

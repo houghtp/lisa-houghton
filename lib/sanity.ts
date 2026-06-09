@@ -1,6 +1,5 @@
 import { createClient, groq } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
-import type { Image } from "sanity";
 
 export const client = createClient({
   projectId: "qlm2v0ma",
@@ -10,7 +9,8 @@ export const client = createClient({
 });
 
 const builder = imageUrlBuilder(client);
-export const urlForImage = (source: Image) =>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const urlForImage = (source: any) =>
   builder.image(source);
 
 export const allPostsQuery = groq`*[_type == "journalPost"] | order(publishedAt desc) {

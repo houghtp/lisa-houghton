@@ -350,7 +350,7 @@ async function ArticleView({ post }: { post: any }) {
         )}
 
         {/* Article header */}
-        <div className="px-8 md:px-16 pt-12 pb-10 max-w-3xl">
+        <div className="px-8 md:px-16 pt-12 pb-10 max-w-3xl mx-auto w-full">
           <p
             className="text-xs tracking-widest uppercase mb-6"
             style={{ color: "var(--muted)", fontWeight: 400 }}
@@ -455,21 +455,21 @@ async function ArticleView({ post }: { post: any }) {
 
         {/* Divider */}
         <div
-          className="mx-8 md:mx-16"
-          style={{ height: "1px", background: "var(--border)", maxWidth: "48rem" }}
+          className="mx-auto px-8 md:px-16 w-full max-w-3xl"
+          style={{ height: "1px", background: "var(--border)" }}
         />
 
         {/* Body */}
         {post.body && (
-          <article className="px-8 md:px-16 pt-10 pb-0 max-w-3xl">
+          <article className="px-8 md:px-16 pt-10 pb-0 max-w-3xl mx-auto w-full">
             <PortableText value={post.body} components={ptComponents} />
           </article>
         )}
 
         {/* Newsletter */}
         <div
-          className="px-8 md:px-16 mt-16 md:mt-20 pt-12 pb-20 md:pb-32"
-          style={{ borderTop: "1px solid var(--border)", maxWidth: "48rem" }}
+          className="px-8 md:px-16 mt-16 md:mt-20 pt-12 pb-20 md:pb-32 max-w-3xl mx-auto w-full"
+          style={{ borderTop: "1px solid var(--border)" }}
         >
           <p
             className="text-xs tracking-widest uppercase mb-4"

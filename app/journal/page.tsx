@@ -8,6 +8,7 @@ import { client, allPostsQuery, urlForImage } from "../../lib/sanity";
 
 export const revalidate = 0; // always SSR — live Sanity data on every visit
 
+
 export const metadata: Metadata = {
   title: "Journal — Lisa Houghton Studio",
   description:

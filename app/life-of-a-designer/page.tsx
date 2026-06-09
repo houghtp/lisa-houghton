@@ -8,6 +8,7 @@ import { client, lifePostsQuery, urlForImage } from "../../lib/sanity";
 
 export const revalidate = 0; // always SSR — live Sanity data on every visit
 
+
 export const metadata: Metadata = {
   title: "Life of a Designer — Lisa Houghton Studio",
   description:

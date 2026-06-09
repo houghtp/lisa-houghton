@@ -35,6 +35,17 @@ body {
   line-height: 1.7;
 }
 
+/* ── GLOBAL PAGE LAYOUT ── */
+/* Cap content at 1280px and center on wide screens — applies to all pages */
+main {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+/* ── END GLOBAL PAGE LAYOUT ── */
+
+
 /* Staggered fade-in on load */
 @keyframes fadeUp {
   from {

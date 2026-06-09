@@ -523,12 +523,6 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const posts: { slug: { current: string } }[] = await client.fetch(allPostsQuery);
-  const categorySlugs = Object.keys(CATEGORY_MAP).map((slug) => ({ segment: slug }));
-  const postSlugs = posts.map((p) => ({ segment: p.slug.current }));
-  return [...categorySlugs, ...postSlugs];
-}
 
 export default async function JournalSegmentPage({
   params,

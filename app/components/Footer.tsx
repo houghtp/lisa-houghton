@@ -20,7 +20,7 @@ export function Footer() {
       </span>
       <div className="flex gap-6">
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/lisa-houghton-studio/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:opacity-60 transition-opacity duration-200 tracking-widest uppercase"

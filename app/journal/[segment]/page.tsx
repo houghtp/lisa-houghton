@@ -314,6 +314,18 @@ async function CategoryView({ slug, categoryName }: { slug: string; categoryName
             Don&rsquo;t miss an issue
           </p>
           <MLEmbed formId="eiqW28" />
+          <p
+            className="mt-8 text-xs leading-loose"
+            style={{ color: "var(--muted)", fontWeight: 300 }}
+          >
+            Questions or commissions?{" "}
+            <a
+              href="mailto:lisa@lisahoughtonstudio.com"
+              style={{ color: "var(--foreground)", textDecoration: "underline" }}
+            >
+              Get in touch.
+            </a>
+          </p>
         </div>
       </main>
       <Footer />
@@ -487,6 +499,18 @@ async function ArticleView({ post }: { post: any }) {
             the newsletter first.
           </p>
           <MLEmbed formId="eiqW28" />
+          <p
+            className="mt-8 text-xs leading-loose"
+            style={{ color: "var(--muted)", fontWeight: 300 }}
+          >
+            Questions or commissions?{" "}
+            <a
+              href="mailto:lisa@lisahoughtonstudio.com"
+              style={{ color: "var(--foreground)", textDecoration: "underline" }}
+            >
+              Get in touch.
+            </a>
+          </p>
         </div>
       </main>
       <Footer />

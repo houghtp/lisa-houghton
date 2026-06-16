@@ -38,7 +38,7 @@ export default function Home() {
             className="fade-up fade-up-2 mb-6 text-xs tracking-widest uppercase"
             style={{ color: "var(--muted)", fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            Fashion designer &nbsp;·&nbsp; mentor &nbsp;·&nbsp; twenty years in the industry
+            Fashion design consultant &nbsp;·&nbsp; twenty years in the industry
           </p>
 
           <h1
@@ -59,9 +59,8 @@ export default function Home() {
             className="fade-up fade-up-4 mt-10 max-w-lg text-base md:text-lg leading-relaxed"
             style={{ color: "var(--muted)", fontWeight: 300 }}
           >
-            For two decades I&rsquo;ve designed for the fashion retail industry — through the briefs,
-            the deadlines, the portfolios that open doors and the ones that don&rsquo;t. Now I work
-            with graduates and early-career designers: refining portfolios, sharpening CVs, and
+            For two decades I&rsquo;ve worked across buying, design, and trend forecasting in the fashion retail industry. Now I work
+            with graduates and early-career professionals: refining portfolios, sharpening CVs, and
             mentoring the people who&rsquo;ll define what comes next.
           </p>
 

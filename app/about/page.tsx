@@ -37,7 +37,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose mb-6" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            I&rsquo;m Lisa Houghton — a fashion designer with two decades of experience across the British retail industry. I&rsquo;ve worked on everything from high street ranges to considered collections, navigating the full cycle of design from brief to buyer sign-off.
+            I&rsquo;m Lisa Houghton — a fashion design consultant with two decades of experience across the British retail industry, working across buying, design, and trend forecasting for some of the UK&rsquo;s best-known brands.
           </p>
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose mb-6" style={{ color: "var(--muted)", fontWeight: 300 }}>
             Over the years I&rsquo;ve reviewed hundreds of graduate portfolios, sat on the other side of the interview table, and watched talented designers struggle to communicate work they should be proud of. Most of the gaps I see have nothing to do with talent — they&rsquo;re about presentation, framing, and understanding how the industry actually makes decisions.

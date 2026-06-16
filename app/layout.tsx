@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Lisa Houghton Studio — Fashion Designer & Mentor",
+  title: "Lisa Houghton Studio — Fashion Design Consultant",
   description:
     "Twenty years in fashion retail design. Portfolio evaluations, CV reviews, mentoring, and freelance design for graduates and early-career designers.",
   metadataBase: new URL("https://lisahoughtonstudio.com"),

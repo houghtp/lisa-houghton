@@ -160,20 +160,18 @@ export default async function LifeOfADesignerPage() {
                       />
                     </div>
                   )}
-                  {post.guestName && (
-                    <p
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontWeight: 400,
-                        fontSize: "1.1rem",
-                        marginBottom: "0.15rem",
-                        transition: "opacity 0.2s",
-                      }}
-                      className="group-hover:opacity-60"
-                    >
-                      {post.guestName}
-                    </p>
-                  )}
+                  <p
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 400,
+                      fontSize: "1.1rem",
+                      marginBottom: "0.15rem",
+                      transition: "opacity 0.2s",
+                    }}
+                    className="group-hover:opacity-60"
+                  >
+                    {post.guestName || post.title}
+                  </p>
                   {post.guestRole && (
                     <p
                       className="text-xs tracking-widest uppercase mb-2"
@@ -182,18 +180,6 @@ export default async function LifeOfADesignerPage() {
                       {post.guestRole}
                     </p>
                   )}
-                  <p
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 300,
-                      fontSize: "1.1rem",
-                      lineHeight: 1.25,
-                      marginBottom: "0.5rem",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    {post.title}
-                  </p>
                   {post.publishedAt && (
                     <p
                       className="text-xs"

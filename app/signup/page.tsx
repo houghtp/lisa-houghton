@@ -11,28 +11,28 @@ export const metadata: Metadata = {
 
 const SENDS = [
   {
-    label: "The Week in Fashion",
+    label: "The Month in Fashion",
     freq: "Monthly",
     description:
-      "The stories that actually mattered this month — runway, business, culture. No press releases, no fluff.",
+      "The stories that moved the industry — from runway to retail, filtered through twenty years of knowing what actually matters.",
   },
   {
-    label: "Career",
+    label: "Behind the Rail",
     freq: "Monthly",
     description:
-      "CV, portfolio, interviews, career moves. Honest advice from someone who has hired, been hired, and helped others do both.",
+      "How the industry really works. Buying cycles, how decisions get made, and the things nobody tells you until it\'s too late.",
   },
   {
-    label: "The Industry",
+    label: "The Forecast",
     freq: "Monthly",
     description:
-      "How buying works. How retail thinks. The business side of fashion that nobody explains on the job.",
+      "Trend direction before it becomes obvious. Where the industry is heading — and what to do with that knowledge.",
   },
   {
-    label: "Where's the Work",
+    label: "The Edit",
     freq: "Monthly",
     description:
-      "What the job market is actually doing — which brands are hiring, what levels, and what it means for your next move.",
+      "How to build a wardrobe with intention. Written for designers and industry professionals, not the general public.",
   },
 ];
 

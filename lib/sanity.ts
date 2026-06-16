@@ -34,8 +34,10 @@ export const fashionEventsQuery = groq`*[_type == "fashionEvent"] | order(startD
 }`;
 
 export const CATEGORY_MAP: Record<string, string> = {
-  "the-week-in-fashion": "The Week in Fashion",
-  "industry-insights": "Industry Insights",
+  "the-month-in-fashion": "The Month in Fashion",
+  "behind-the-rail": "Behind the Rail",
+  "the-forecast": "The Forecast",
+  "the-edit": "The Edit",
   "life-of-a-designer": "Life of a Designer",
 };
 

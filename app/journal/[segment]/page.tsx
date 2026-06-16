@@ -31,8 +31,10 @@ function formatDate(iso: string) {
 
 const TABS = [
   { label: "All", href: "/journal", slug: null },
-  { label: "The Week in Fashion", href: "/journal/the-week-in-fashion" },
-  { label: "Industry Insights", href: "/journal/industry-insights" },
+  { label: "The Month in Fashion", href: "/journal/the-month-in-fashion" },
+  { label: "Behind the Rail", href: "/journal/behind-the-rail" },
+  { label: "The Forecast", href: "/journal/the-forecast" },
+  { label: "The Edit", href: "/journal/the-edit" },
   { label: "Life of a Designer", href: "/journal/life-of-a-designer" },
 ];
 

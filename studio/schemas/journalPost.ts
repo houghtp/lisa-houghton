@@ -11,8 +11,10 @@ export const journalPost = defineType({
       name: 'category', title: 'Category', type: 'string',
       options: {
         list: [
-          { title: 'The Week in Fashion', value: 'The Week in Fashion' },
-          { title: 'Industry Insights', value: 'Industry Insights' },
+          { title: 'The Month in Fashion', value: 'The Month in Fashion' },
+          { title: 'Behind the Rail', value: 'Behind the Rail' },
+          { title: 'The Forecast', value: 'The Forecast' },
+          { title: 'The Edit', value: 'The Edit' },
           { title: 'Life of a Designer', value: 'Life of a Designer' },
         ],
         layout: 'radio',

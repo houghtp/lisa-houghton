@@ -19,6 +19,18 @@ function formatDate(iso: string) {
   });
 }
 
+function postedLabel(iso: string | undefined): string {
+  if (!iso) return "";
+  const diff = Date.now() - new Date(iso).getTime();
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  if (days === 0) return "Posted today";
+  if (days === 1) return "Posted yesterday";
+  if (days < 7) return `Posted ${days} days ago`;
+  if (days < 14) return "Posted last week";
+  if (days < 30) return `Posted ${Math.floor(days / 7)} weeks ago`;
+  return `Posted ${formatDate(iso)}`;
+}
+
 const TYPE_LABELS: Record<string, string> = {
   "full-time": "Full-time",
   "part-time": "Part-time",
@@ -79,8 +91,13 @@ export default async function JobsPage() {
             className="fade-up fade-up-3 text-base md:text-lg leading-loose"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}
           >
-            Roles worth your time: buying, merchandising, styling, design. Updated regularly. All listings link to the original source.
+            Roles worth your time: buying, merchandising, styling, design. All listings link to the original source.
           </p>
+          {jobs.length > 0 && (
+            <p className="fade-up fade-up-4 text-xs mt-4" style={{ color: "var(--muted)", fontWeight: 300, letterSpacing: "0.02em" }}>
+              Last updated {formatDate(jobs[0].postedAt)}
+            </p>
+          )}
         </div>
 
         {/* Jobs list */}
@@ -289,6 +306,11 @@ function JobCard({ job, featured }: { job: any; featured: boolean }) {
 
           {/* Meta */}
           <div className="flex gap-4 mt-3">
+            {job.postedAt && (
+              <p className="text-xs" style={{ color: "var(--muted)", fontWeight: 300 }}>
+                {postedLabel(job.postedAt)}
+              </p>
+            )}
             {job.sourceName && (
               <p className="text-xs" style={{ color: "var(--muted)", fontWeight: 300 }}>
                 Via {job.sourceName}

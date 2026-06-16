@@ -9,7 +9,7 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: "Portfolio — Lisa Houghton Studio",
   description:
-    "Selected work from Lisa Houghton's 20-year career in fashion — retail buying, visual merchandising, and styling for brands including Next and River Island.",
+    "Selected work from Lisa Houghton's 20-year career in fashion — retail buying and visual merchandising for brands including Next and River Island.",
 };
 
 export default async function PortfolioPage() {
@@ -55,7 +55,7 @@ export default async function PortfolioPage() {
             className="fade-up fade-up-3 text-base md:text-lg leading-loose"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}
           >
-            Twenty years across buying, visual merchandising, and styling — a selection of projects from brands including Next and River Island. Work shown with employer attribution.
+            Twenty years across buying and visual merchandising — a selection of projects from brands including Next and River Island. Work shown with employer attribution.
           </p>
         </div>
 

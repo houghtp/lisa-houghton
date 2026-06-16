@@ -6,9 +6,9 @@ import { client, fashionEventsQuery } from "../../lib/sanity";
 export const revalidate = 0; // always server-render — guarantees fresh Sanity data on every visit
 
 export const metadata: Metadata = {
-  title: "Catwalk Calendar — Lisa Houghton Studio",
+  title: "Catwalk Calendar - Lisa Houghton Studio",
   description:
-    "Major fashion week dates for the season — New York, London, Milan, Paris. Updated when schedules are announced.",
+    "Major fashion week dates for the season: New York, London, Milan, Paris. Updated when schedules are announced.",
 };
 
 const OFFICIAL_SOURCES = [
@@ -50,9 +50,9 @@ export default async function CalendarPage() {
       { _id: "2", name: "London Fashion Week (FW26/27)", city: "London", startDate: "2026-02-19", endDate: "2026-02-23" },
       { _id: "3", name: "Milan Fashion Week (Women’s FW26/27)", city: "Milan", startDate: "2026-02-24", endDate: "2026-03-02" },
       { _id: "4", name: "Paris Fashion Week (Women’s FW26/27)", city: "Paris", startDate: "2026-03-02", endDate: "2026-03-10" },
-      { _id: "5", name: "London Fashion Week (SS27)", city: "London", startDate: "2026-09-17", endDate: "2026-09-21", note: "Projected — confirm against official schedule" },
-      { _id: "6", name: "Milan Fashion Week (Women’s SS27)", city: "Milan", startDate: "2026-09-23", endDate: "2026-09-29", note: "Projected — confirm against official schedule" },
-      { _id: "7", name: "Paris Fashion Week (Women’s SS27)", city: "Paris", startDate: "2026-09-30", endDate: "2026-10-08", note: "Projected — confirm against official schedule" },
+      { _id: "5", name: "London Fashion Week (SS27)", city: "London", startDate: "2026-09-17", endDate: "2026-09-21", note: "Projected. Confirm against official schedule" },
+      { _id: "6", name: "Milan Fashion Week (Women’s SS27)", city: "Milan", startDate: "2026-09-23", endDate: "2026-09-29", note: "Projected. Confirm against official schedule" },
+      { _id: "7", name: "Paris Fashion Week (Women’s SS27)", city: "Paris", startDate: "2026-09-30", endDate: "2026-10-08", note: "Projected. Confirm against official schedule" },
     ];
   }
 
@@ -75,7 +75,7 @@ export default async function CalendarPage() {
             <em style={{ fontStyle: "italic" }}>Calendar</em>
           </h1>
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose" style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}>
-            Major fashion week dates — the Big Four, in date order. Updated when schedules are announced.
+            Major fashion week dates, the Big Four, in date order. Updated when schedules are announced.
           </p>
         </div>
 
@@ -123,7 +123,7 @@ export default async function CalendarPage() {
 
         <div className="mt-12 max-w-2xl">
           <p className="text-xs leading-relaxed" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            Dates as announced — always confirm against official schedules:{" "}
+            Dates as announced. Always confirm against official schedules:{" "}
             {OFFICIAL_SOURCES.map((s, i) => (
               <span key={s.name}>
                 <a href={s.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity" style={{ color: "var(--muted)", textDecoration: "underline", textUnderlineOffset: "2px" }}>

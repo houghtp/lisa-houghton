@@ -49,7 +49,7 @@ export default function PortfolioEvaluationPage() {
             An honest, industry-trained eye on the work that defines your career.
           </p>
           <p className="fade-up fade-up-3 text-base leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            I&rsquo;ve reviewed hundreds of graduate portfolios from the hiring side of the table. I know what makes recruiters stop — and what makes them skip. This service gives you that perspective before it counts.
+            I&rsquo;ve reviewed hundreds of graduate portfolios from the hiring side of the table. I know what makes recruiters stop and what makes them skip. This gives you that perspective before it counts.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export default function PortfolioEvaluationPage() {
                 {
                   label: "Written Review",
                   heading: "Detailed written feedback",
-                  body: "I work through your portfolio project by project — what's working, what isn't, and the specific changes that will make the difference. Delivered as a clear written document you can act on immediately.",
+                  body: "I work through your portfolio project by project: what's working, what isn't, and the specific changes that will make the difference. Delivered as a written document you can act on straight away.",
                   includes: ["Project-by-project analysis", "Strengths and improvement notes", "Formatting and narrative advice", "What to lead with and what to cut"],
                 },
                 {
@@ -82,7 +82,7 @@ export default function PortfolioEvaluationPage() {
                   <p style={{ color: "var(--muted)", fontSize: "0.875rem", lineHeight: 1.75, fontWeight: 300, marginBottom: "1rem" }}>{tier.body}</p>
                   <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                     {tier.includes.map((item) => (
-                      <li key={item} style={{ fontSize: "0.8rem", fontWeight: 300, color: "#6b6b6b", paddingBottom: "0.3rem" }}>— {item}</li>
+                      <li key={item} style={{ fontSize: "0.8rem", fontWeight: 300, color: "#6b6b6b", paddingBottom: "0.3rem", listStyleType: "disc", marginLeft: "1rem" }}>{item}</li>
                     ))}
                   </ul>
                 </div>
@@ -99,7 +99,7 @@ export default function PortfolioEvaluationPage() {
 
             {submitted ? (
               <div className="py-8">
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you — I&rsquo;ll be in touch.</p>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you. I&rsquo;ll be in touch.</p>
                 <p style={{ color: "var(--muted)", fontSize: "0.9rem", fontWeight: 300 }}>I typically reply within two working days.</p>
               </div>
             ) : (

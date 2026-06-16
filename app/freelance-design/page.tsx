@@ -49,7 +49,7 @@ export default function FreelanceDesignPage() {
             Senior design experience, available for the right project.
           </p>
           <p className="fade-up fade-up-3 text-base leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            Twenty years across British fashion retail — ranges, seasons, collections. I work with brands, retailers, and agencies who need experienced design input without a full-time hire.
+            Twenty years across British fashion retail. Ranges, seasons, collections. I work with brands, retailers, and agencies who need experienced design input without a full-time hire.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function FreelanceDesignPage() {
             <p className="text-xs tracking-widest uppercase mb-8" style={{ color: "var(--muted)", fontWeight: 400 }}>What I take on</p>
             <div>
               {[
-                { heading: "Range design", body: "Seasonal ranges for womenswear, menswear and accessories — from concept through to delivery-ready specs." },
+                { heading: "Range design", body: "Seasonal ranges for womenswear, menswear and accessories, from concept through to delivery-ready specs." },
                 { heading: "Design consultancy", body: "Strategic design input on direction, range architecture, or positioning. Useful when you need an experienced eye, not a full design team." },
                 { heading: "Agency projects", body: "Available for short and medium-term agency engagements where senior fashion design expertise is needed." },
               ].map((item) => (
@@ -84,7 +84,7 @@ export default function FreelanceDesignPage() {
 
             {submitted ? (
               <div className="py-8">
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you — I&rsquo;ll be in touch.</p>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you. I&rsquo;ll be in touch.</p>
                 <p style={{ color: "var(--muted)", fontSize: "0.9rem", fontWeight: 300 }}>I typically reply within two working days.</p>
               </div>
             ) : (

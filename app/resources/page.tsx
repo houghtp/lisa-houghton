@@ -4,16 +4,16 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Resources — Lisa Houghton Studio",
+  title: "Resources - Lisa Houghton Studio",
   description:
-    "Free cheat sheets for fashion professionals. Industry acronyms, the buying cycle, garment construction terms — downloadable references from twenty years inside the industry.",
+    "Free cheat sheets for fashion professionals. Industry acronyms, the buying cycle, garment construction terms. No sign-up required.",
 };
 
 const SHEETS = [
   {
     title: "Fashion Industry Acronyms",
     description:
-      "OTB, MOQ, FOB, WSSI, STR — the thirty terms that come up in every meeting, every WSSI, every supplier call. If you've ever nodded along while secretly Googling, this is for you.",
+      "OTB, MOQ, FOB, WSSI, STR. The thirty terms that come up in every meeting and every buying call. If you've nodded along while quietly Googling, this is for you.",
     tags: ["Buying", "Retail", "Graduate essentials"],
     file: "/resources/fashion-acronyms.pdf",
     pages: "1 page · PDF",
@@ -29,7 +29,7 @@ const SHEETS = [
   {
     title: "Garment Construction Terms",
     description:
-      "Darts, princess seams, bias cut, GSM, toile, critical path. The technical vocabulary designers and buyers both need — organised by pattern, process, fabric, and production.",
+      "Darts, princess seams, bias cut, GSM, toile, critical path. The technical vocabulary designers and buyers both need, organised by pattern, process, fabric, and production.",
     tags: ["Design", "Technical", "Production"],
     file: "/resources/garment-construction-terms.pdf",
     pages: "2 pages · PDF",
@@ -65,15 +65,14 @@ export default function ResourcesPage() {
               marginBottom: "2rem",
             }}
           >
-            Cheat sheets —<br />
+            Cheat sheets.<br />
             <em style={{ fontStyle: "italic" }}>the things<br />worth knowing.</em>
           </h1>
           <p
             className="fade-up fade-up-3 text-base md:text-lg leading-loose"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "38rem" }}
           >
-            Twenty years of industry knowledge, condensed. Download, print, keep at your desk.
-            All free — no sign-up required.
+            Download, print, keep at your desk. No sign-up.
           </p>
         </div>
 
@@ -181,7 +180,7 @@ export default function ResourcesPage() {
           className="fade-up fade-up-6 max-w-4xl pt-12"
         >
           <p style={{ color: "var(--muted)", fontSize: "0.875rem", fontWeight: 300, lineHeight: 1.8, maxWidth: "32rem" }}>
-            More sheets in progress — fabric weights, colour theory for buyers, and a guide
+            More in progress: fabric weights, colour theory for buyers, and a guide
             to reading a WSSI. Subscribe to the newsletter to hear when they land.
           </p>
           <div className="mt-6">

@@ -10,9 +10,9 @@ export const revalidate = 0; // always SSR — live Sanity data on every visit
 
 
 export const metadata: Metadata = {
-  title: "Life of a Designer — Lisa Houghton Studio",
+  title: "Life of a Designer - Lisa Houghton Studio",
   description:
-    "Candid conversations with designers, directors, and creatives from across the fashion industry — on careers, craft, and what nobody tells you at college.",
+    "Conversations with designers, directors, and creatives from across the fashion industry. On careers, craft, and the things you only learn by doing the job.",
 };
 
 function formatDate(iso: string) {
@@ -62,7 +62,7 @@ export default async function LifeOfADesignerPage() {
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "38rem" }}
           >
             Conversations with people across the industry about how they actually
-            got here and what the job is really like. No PR, no polish — just
+            got here and what the job is really like. No PR, no polish. Just
             honest accounts of creative careers.
           </p>
         </div>

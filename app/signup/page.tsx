@@ -4,9 +4,9 @@ import { Footer } from "../components/Footer";
 import { MLEmbed } from "../components/MLEmbed";
 
 export const metadata: Metadata = {
-  title: "Newsletter — Lisa Houghton Studio",
+  title: "Newsletter - Lisa Houghton Studio",
   description:
-    "The newsletter for fashion professionals — industry news, career advice, and the job market, straight from twenty years inside the industry.",
+    "Four monthly newsletters from inside the fashion industry. No filler, no brand deals.",
 };
 
 const SENDS = [
@@ -14,7 +14,7 @@ const SENDS = [
     label: "The Month in Fashion",
     freq: "Monthly",
     description:
-      "The stories that moved the industry — from runway to retail, filtered through twenty years of knowing what actually matters.",
+      "The stories that mattered this month. Runway to retail, seen through twenty years of knowing what to pay attention to.",
   },
   {
     label: "Behind the Rail",
@@ -26,7 +26,7 @@ const SENDS = [
     label: "The Forecast",
     freq: "Monthly",
     description:
-      "Trend direction before it becomes obvious. Where the industry is heading — and what to do with that knowledge.",
+      "Trend direction before it becomes obvious. Where the industry is heading, and what to do with that knowledge.",
   },
   {
     label: "The Edit",
@@ -77,7 +77,7 @@ export default function SignupPage() {
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "34rem", marginBottom: "3rem" }}
           >
             Four sends a month from someone who spent twenty years in buying, styling, and visual merchandising
-            at brands you know. Industry news, career advice, and the job market — without the noise.
+            at brands you know. Industry news, career advice, and the job market. Without the noise.
           </p>
 
           {/* What you get */}

@@ -10,9 +10,9 @@ export const revalidate = 0; // always SSR — live Sanity data on every visit
 
 
 export const metadata: Metadata = {
-  title: "Journal — Lisa Houghton Studio",
+  title: "Journal - Lisa Houghton Studio",
   description:
-    "Essays, industry insights, and conversations with designers — from inside the fashion industry.",
+    "Writing from inside the fashion industry. Essays, interviews, and the things worth paying attention to.",
 };
 
 const TABS = [

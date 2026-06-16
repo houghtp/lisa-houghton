@@ -46,10 +46,10 @@ export default function MentoringPage() {
             Mentoring
           </h1>
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose mb-4" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            One-to-one guidance for graduates and early-career designers who want more than advice — they want a strategy.
+            One-to-one guidance for graduates and early-career designers who want more than advice. They want a plan that actually works.
           </p>
           <p className="fade-up fade-up-3 text-base leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            Whether you&rsquo;re trying to get your first role, figure out where to take your career, or just want someone with real industry experience in your corner — this is built around you and what you need.
+            Whether you&rsquo;re trying to land your first role, work out where to take your career, or just want someone with real industry experience in your corner, this is built around what you actually need.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function MentoringPage() {
             <div className="grid md:grid-cols-3 gap-0 mb-12">
               {[
                 { n: "01", heading: "First conversation", body: "We start with a free 20-minute call to understand where you are, what you want, and whether we're a good fit." },
-                { n: "02", heading: "Regular sessions", body: "Ongoing video calls structured around your goals — career direction, applications, portfolios, interviews, navigating studio culture." },
+                { n: "02", heading: "Regular sessions", body: "Regular video calls built around your goals: career direction, applications, portfolios, interviews, how to read a room when you get there." },
                 { n: "03", heading: "Practical support", body: "Between sessions I'm available for quick questions, feedback on applications, and honest input when you need it." },
               ].map((step) => (
                 <div key={step.n} className="py-8 pr-6 md:pr-8" style={{ borderTop: "1px solid var(--border)" }}>
@@ -94,7 +94,7 @@ export default function MentoringPage() {
 
             {submitted ? (
               <div className="py-8">
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you — I&rsquo;ll be in touch.</p>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you. I&rsquo;ll be in touch.</p>
                 <p style={{ color: "var(--muted)", fontSize: "0.9rem", fontWeight: 300 }}>I typically reply within two working days.</p>
               </div>
             ) : (

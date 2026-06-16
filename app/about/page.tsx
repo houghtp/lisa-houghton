@@ -4,7 +4,7 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "About — Lisa Houghton Studio",
+  title: "About - Lisa Houghton Studio",
   description: "Twenty years designing for the fashion retail industry. Now working with graduates and early-career designers through mentoring, portfolio evaluations and CV reviews.",
 };
 
@@ -32,18 +32,18 @@ export default function AboutPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Twenty years —<br />
+            Twenty years,<br />
             <em style={{ fontStyle: "italic" }}>and everything<br />that comes with them.</em>
           </h1>
 
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose mb-6" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            I&rsquo;m Lisa Houghton — a fashion design consultant with two decades of experience across the British retail industry, working across buying, design, and trend forecasting for some of the UK&rsquo;s best-known brands.
+            I&rsquo;m Lisa Houghton, a fashion design consultant with two decades of experience across the British retail industry. Buying, design, trend forecasting, and a lot of time on the shop floor at brands you&rsquo;ve heard of.
           </p>
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose mb-6" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            Over the years I&rsquo;ve reviewed hundreds of graduate portfolios, sat on the other side of the interview table, and watched talented designers struggle to communicate work they should be proud of. Most of the gaps I see have nothing to do with talent — they&rsquo;re about presentation, framing, and understanding how the industry actually makes decisions.
+            Over the years I&rsquo;ve reviewed hundreds of graduate portfolios, sat on the other side of the interview table, and watched talented designers struggle to communicate work they should be proud of. Most of the gaps I see have nothing to do with talent. They&rsquo;re about presentation, framing, and understanding how the industry actually makes decisions.
           </p>
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            That&rsquo;s what I work on with the designers I mentor. Not what to make — but how to show it, talk about it, and build a career around it.
+            That&rsquo;s what I work on with the designers I mentor. Not what to make, but how to show it, talk about it, and get somewhere with it.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-0">
             {[
               { heading: "Talent isn’t the problem.", body: "Most graduates I work with have the creative ability. What they lack is the industry knowledge to position it correctly." },
-              { heading: "Honesty is more useful than encouragement.", body: "I give direct feedback — not to be harsh, but because vague praise doesn’t help you improve or get hired." },
+              { heading: "Honesty is more useful than encouragement.", body: "I give direct feedback. Not to be harsh, but because vague praise doesn’t help you get better or get hired." },
               { heading: "Process matters less than outcome.", body: "Recruiters spend seconds on a portfolio. The work has to lead with the strongest finished result, not how you got there." },
               { heading: "Careers are built deliberately.", body: "The designers who break in fastest are the ones who understand what they want and present themselves accordingly." },
             ].map((item) => (

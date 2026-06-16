@@ -6,9 +6,9 @@ import { client, jobListingsQuery } from "../../lib/sanity";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Fashion Jobs — Lisa Houghton Studio",
+  title: "Fashion Jobs - Lisa Houghton Studio",
   description:
-    "Curated fashion industry job listings — buying, merchandising, styling, and design roles. Handpicked by Lisa Houghton.",
+    "Fashion industry job listings worth your time: buying, merchandising, design, and more. Handpicked by Lisa Houghton.",
 };
 
 function formatDate(iso: string) {
@@ -79,7 +79,7 @@ export default async function JobsPage() {
             className="fade-up fade-up-3 text-base md:text-lg leading-loose"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}
           >
-            Roles worth looking at — buying, merchandising, styling, design. Updated regularly. All listings link back to the original source.
+            Roles worth your time: buying, merchandising, styling, design. Updated regularly. All listings link to the original source.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export default async function JobsPage() {
               No listings right now.
             </p>
             <p className="mt-4 text-sm" style={{ fontWeight: 300 }}>
-              Check back soon — new roles are added weekly.
+              Check back soon. New roles added regularly.
             </p>
           </div>
         ) : (
@@ -128,7 +128,7 @@ export default async function JobsPage() {
         {/* Disclaimer */}
         <div className="max-w-3xl mx-auto w-full mt-12">
           <p className="text-xs leading-relaxed" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            All listings link to their original source — Adzuna, Reed, or direct employer pages. Lisa Houghton Studio is not involved in any application process and cannot be held responsible for third-party listing accuracy.
+            All listings link to their original source: Adzuna, Reed, or direct employer pages. Lisa Houghton Studio is not involved in any application process and cannot be held responsible for third-party listing accuracy.
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export default async function JobsPage() {
               Want help landing one of these roles?
             </p>
             <p className="text-sm leading-loose mb-6" style={{ color: "var(--muted)", fontWeight: 300 }}>
-              Lisa offers CV reviews and portfolio evaluations for fashion professionals at every level — from graduate to senior buyer.
+              Lisa offers CV reviews and portfolio evaluations for fashion professionals at every level, from graduate to senior buyer.
             </p>
             <a
               href="/cv-review"

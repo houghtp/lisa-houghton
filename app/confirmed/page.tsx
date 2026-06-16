@@ -4,7 +4,7 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "You're confirmed — Lisa Houghton Studio",
+  title: "You're confirmed - Lisa Houghton Studio",
   description: "You're on the list. Expect fashion from the inside out.",
   robots: { index: false, follow: false },
 };
@@ -13,7 +13,7 @@ const SENDS = [
   {
     label: "The Month in Fashion",
     freq: "Monthly",
-    description: "The stories that moved the industry — from runway to retail, filtered through twenty years of knowing what actually matters.",
+    description: "The stories that mattered this month. Runway to retail, seen through twenty years of knowing what to pay attention to.",
   },
   {
     label: "Behind the Rail",
@@ -23,7 +23,7 @@ const SENDS = [
   {
     label: "The Forecast",
     freq: "Monthly",
-    description: "Trend direction before it becomes obvious. Where the industry is heading — and what to do with that knowledge.",
+    description: "Trend direction before it becomes obvious. Where the industry is heading, and what to do with that knowledge.",
   },
   {
     label: "The Edit",
@@ -60,14 +60,14 @@ export default function ConfirmedPage() {
               marginBottom: "2rem",
             }}
           >
-            You&rsquo;re in —<br />
+            You&rsquo;re in.<br />
             <em style={{ fontStyle: "italic" }}>welcome.</em>
           </h1>
           <p
             className="fade-up fade-up-3 text-base md:text-lg leading-loose"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}
           >
-            Your subscription is confirmed. Here&rsquo;s what you can expect to land in your inbox — four distinct sends, once a month each.
+            Your subscription is confirmed. Here&rsquo;s what lands in your inbox, once a month each.
           </p>
         </div>
 

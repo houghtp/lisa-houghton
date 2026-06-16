@@ -483,7 +483,7 @@ async function ArticleView({ post }: { post: any }) {
             className="text-base leading-loose mb-8"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}
           >
-            Get the next one in your inbox — new essays and interviews arrive in
+            Get the next one in your inbox. New essays and interviews arrive in
             the newsletter first.
           </p>
           <MLEmbed formId="eiqW28" />
@@ -504,7 +504,7 @@ export async function generateMetadata({
 
   if (CATEGORY_MAP[segment]) {
     return {
-      title: `${CATEGORY_MAP[segment]} — Lisa Houghton Studio`,
+      title: `${CATEGORY_MAP[segment]} - Lisa Houghton Studio`,
       description: `Browse all ${CATEGORY_MAP[segment]} posts from Lisa Houghton Studio.`,
     };
   }
@@ -513,7 +513,7 @@ export async function generateMetadata({
   if (!post) return { title: "Lisa Houghton Studio" };
 
   return {
-    title: `${post.title} — Lisa Houghton Studio`,
+    title: `${post.title} - Lisa Houghton Studio`,
     description: post.excerpt || undefined,
     openGraph: {
       title: post.title,

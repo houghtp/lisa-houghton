@@ -7,9 +7,9 @@ import { client, portfolioQuery, urlForImage } from "../../lib/sanity";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Portfolio — Lisa Houghton Studio",
+  title: "Portfolio - Lisa Houghton Studio",
   description:
-    "Selected work from Lisa Houghton's 20-year career in fashion — retail buying and visual merchandising for brands including Next and River Island.",
+    "Selected work from Lisa Houghton's 20-year career in fashion. Retail buying and visual merchandising for brands including Next and River Island.",
 };
 
 export default async function PortfolioPage() {
@@ -55,7 +55,7 @@ export default async function PortfolioPage() {
             className="fade-up fade-up-3 text-base md:text-lg leading-loose"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "36rem" }}
           >
-            Twenty years across buying and visual merchandising — a selection of projects from brands including Next and River Island. Work shown with employer attribution.
+            Twenty years across buying and visual merchandising. A selection of projects from brands including Next and River Island. Work shown with employer attribution.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default async function PortfolioPage() {
               Portfolio coming soon.
             </p>
             <p className="mt-4 text-sm" style={{ fontWeight: 300 }}>
-              Work in progress — check back shortly.
+              Work in progress. Check back shortly.
             </p>
           </div>
         ) : (

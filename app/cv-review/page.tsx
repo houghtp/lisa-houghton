@@ -46,7 +46,7 @@ export default function CVReviewPage() {
             CV<br /><em style={{ fontStyle: "italic" }}>Review</em>
           </h1>
           <p className="fade-up fade-up-3 text-base md:text-lg leading-loose mb-4" style={{ color: "var(--muted)", fontWeight: 300 }}>
-            The page that lands the interview — done properly.
+            The page that lands the interview. Done properly.
           </p>
           <p className="fade-up fade-up-3 text-base leading-loose" style={{ color: "var(--muted)", fontWeight: 300 }}>
             A fashion CV isn&rsquo;t like other CVs. The conventions are different, the emphasis is different, and what gets you noticed at a mid-market retailer is not what gets you noticed at a boutique studio. I&rsquo;ve hired from both sides, and I know the difference.
@@ -64,9 +64,9 @@ export default function CVReviewPage() {
             <div>
               {[
                 { heading: "Honest structural feedback", body: "Is the layout working for your experience level? Is the order right? What needs to come first?" },
-                { heading: "Line-by-line notes", body: "Every bullet point and description reviewed — what to cut, what to expand, how to reframe your experience for the roles you want." },
+                { heading: "Line-by-line notes", body: "Every bullet point and description looked at: what to cut, what to expand, how to reframe your experience for the roles you want." },
                 { heading: "Industry conventions", body: "Fashion has its own shorthand. I flag anything that looks off to a trained eye, and explain why." },
-                { heading: "Clear action points", body: "You'll know exactly what to change and why — not vague suggestions, specific improvements." },
+                { heading: "Clear action points", body: "You'll know exactly what to change and why. Not vague suggestions, but specific improvements you can make the same day." },
               ].map((item) => (
                 <div key={item.heading} className="py-8 pr-8 md:pr-12" style={{ borderTop: "1px solid var(--border)" }}>
                   <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.2rem", marginBottom: "0.5rem" }}>{item.heading}</h3>
@@ -85,7 +85,7 @@ export default function CVReviewPage() {
 
             {submitted ? (
               <div className="py-8">
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you — I&rsquo;ll be in touch.</p>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 400, marginBottom: "0.75rem" }}>Thank you. I&rsquo;ll be in touch.</p>
                 <p style={{ color: "var(--muted)", fontSize: "0.9rem", fontWeight: 300 }}>I typically reply within two working days.</p>
               </div>
             ) : (

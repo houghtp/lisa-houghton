@@ -49,6 +49,23 @@ function renderBlocks(blocks: any[]) {
     if (style === "blockquote") {
       return (<blockquote key={block._key || i} style={{ borderLeft: "2px solid var(--border)", paddingLeft: "1.5rem", marginLeft: 0, marginTop: "1.5rem", marginBottom: "1.5rem", color: "var(--muted)", fontStyle: "italic" }}>{children}</blockquote>);
     }
+    // Detect interview question: block text ends with "?"
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const blockText = (block.children || []).map((c: any) => c.text || "").join("").trim();
+    if (style === "normal" && blockText.endsWith("?")) {
+      return (
+        <p key={block._key || i} style={{
+          marginTop: "2.25rem",
+          marginBottom: "0.25rem",
+          fontWeight: 600,
+          fontSize: "0.95rem",
+          lineHeight: 1.4,
+          letterSpacing: "0.01em",
+        }}>
+          {children}
+        </p>
+      );
+    }
     return (<p key={block._key || i} style={{ marginTop: "1.25rem", lineHeight: 1.85, fontWeight: 300, fontSize: "1rem" }}>{children}</p>);
   });
 }
@@ -115,4 +132,4 @@ export default async function LifePostPage({ params }: { params: Promise<{ slug:
       <Footer />
     </div>
   );
-}
+      }

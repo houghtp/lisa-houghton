@@ -9,7 +9,7 @@ import { groq } from "next-sanity";
 export const revalidate = 0;
 
 const newsletterIssueBySlugQuery = groq`*[_type == "newsletterIssue" && slug.current == $slug][0] {
-  _id, title, slug, issueNumber, publishedAt, lisaTake, handoffLine, weekInFashion
+_id, title, slug, issueNumber, publishedAt, lisaTake, handoffLine, weekInFashion
 }`;
 
 function formatDate(iso: string) {
@@ -20,19 +20,15 @@ function formatDate(iso: string) {
   });
 }
 
-// Minimal portable text renderer — handles the block types defined in the schema
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function renderBlocks(blocks: any[]) {
   if (!blocks || blocks.length === 0) return null;
   return blocks.map((block, i) => {
     if (block._type !== "block") return null;
 
-    // Build inline children
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const children = (block.children || []).map((child: any, j: number) => {
       let text: React.ReactNode = child.text;
-
-      // Apply marks
       if (child.marks && child.marks.length > 0) {
         for (const mark of child.marks) {
           if (mark === "strong") {
@@ -40,20 +36,14 @@ function renderBlocks(blocks: any[]) {
           } else if (mark === "em") {
             text = <em key={j}>{text}</em>;
           } else {
-            // It's a link key — find the annotation
             const def = (block.markDefs || []).find(
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (d: any) => d._key === mark
             );
             if (def && def._type === "link") {
               text = (
-                <a
-                  key={j}
-                  href={def.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "var(--foreground)", textDecorationColor: "var(--border)" }}
-                >
+                <a key={j} href={def.href} target="_blank" rel="noopener noreferrer"
+                  style={{ color: "var(--foreground)", textDecorationColor: "var(--border)" }}>
                   {text}
                 </a>
               );
@@ -68,22 +58,14 @@ function renderBlocks(blocks: any[]) {
 
     if (style === "h2") {
       return (
-        <h2
-          key={block._key || i}
-          style={{
-            fontWeight: 600,
-            fontSize: "1rem",
-            lineHeight: 1.4,
-            letterSpacing: "0.02em",
-            marginTop: "2.5rem",
-            marginBottom: "0.5rem",
-          }}
-        >
-          {children}
-        </h2>
-      );
-    }}
-        >
+        <h2 key={block._key || i} style={{
+          fontWeight: 600,
+          fontSize: "1.15rem",
+          lineHeight: 1.35,
+          letterSpacing: "0.01em",
+          marginTop: "2.5rem",
+          marginBottom: "0.5rem",
+        }}>
           {children}
         </h2>
       );
@@ -91,34 +73,49 @@ function renderBlocks(blocks: any[]) {
 
     if (style === "blockquote") {
       return (
-        <blockquote
-          key={block._key || i}
-          style={{
-            borderLeft: "2px solid var(--border)",
-            paddingLeft: "1.5rem",
-            marginLeft: 0,
-            marginTop: "1.5rem",
-            marginBottom: "1.5rem",
-            color: "var(--muted)",
-            fontStyle: "italic",
-          }}
-        >
+        <blockquote key={block._key || i} style={{
+          borderLeft: "2px solid var(--border)",
+          paddingLeft: "1.5rem",
+          marginLeft: 0,
+          marginTop: "1.5rem",
+          marginBottom: "1.5rem",
+          color: "var(--muted)",
+          fontStyle: "italic",
+        }}>
           {children}
         </blockquote>
       );
     }
 
+    // Detect story headline: all non-empty children are bold
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const isHeadline = (block.children || []).filter((c: any) => c.text?.trim()).every(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (c: any) => c.marks?.includes("strong")
+    );
+    if (style === "normal" && isHeadline && (block.children || []).some((c: any) => c.text?.trim())) {
+      return (
+        <p key={block._key || i} style={{
+          marginTop: "2.25rem",
+          marginBottom: "0.25rem",
+          fontWeight: 700,
+          fontSize: "1rem",
+          lineHeight: 1.3,
+          letterSpacing: "0.01em",
+        }}>
+          {children}
+        </p>
+      );
+    }
+
     // Normal paragraph
     return (
-      <p
-        key={block._key || i}
-        style={{
-          marginTop: "1.25rem",
-          lineHeight: 1.85,
-          fontWeight: 300,
-          fontSize: "1rem",
-        }}
-      >
+      <p key={block._key || i} style={{
+        marginTop: "1.25rem",
+        lineHeight: 1.85,
+        fontWeight: 300,
+        fontSize: "1rem",
+      }}>
         {children}
       </p>
     );
@@ -149,8 +146,7 @@ export default async function NewsletterIssuePage({
   if (!issue) notFound();
 
   return (
-    <div
-      className="flex flex-col min-h-screen"
+    <div className="flex flex-col min-h-screen"
       style={{ background: "var(--background)", color: "var(--foreground)" }}
     >
       <Nav active="/newsletter" />
@@ -159,34 +155,26 @@ export default async function NewsletterIssuePage({
         <div className="max-w-2xl mx-auto w-full">
 
           {/* Back link */}
-          <Link
-            href="/newsletter"
-            className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
-            style={{ color: "var(--muted)", textDecoration: "none", fontWeight: 400 }}
-          >
+          <Link href="/newsletter" className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
+            style={{ color: "var(--muted)", textDecoration: "none", fontWeight: 400 }}>
             ← All issues
           </Link>
 
           {/* Header */}
           <div className="mt-10 mb-12" style={{ borderBottom: "1px solid var(--border)", paddingBottom: "2rem" }}>
-            <p
-              className="text-xs tracking-widest uppercase mb-4"
-              style={{ color: "var(--muted)", fontWeight: 400 }}
-            >
-              Issue #{issue.issueNumber}
+            <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--muted)", fontWeight: 400 }}>
+              Issue #{ issue.issueNumber}
               {issue.publishedAt && (
                 <span style={{ marginLeft: "1rem" }}>{formatDate(issue.publishedAt)}</span>
               )}
             </p>
-            <h1
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 300,
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.01em",
-              }}
-            >
+            <h1 style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 300,
+              fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.01em",
+            }}>
               {issue.title}
             </h1>
           </div>
@@ -194,10 +182,8 @@ export default async function NewsletterIssuePage({
           {/* Lisa's take */}
           {issue.lisaTake && issue.lisaTake.length > 0 && (
             <section className="mb-12">
-              <p
-                className="text-xs tracking-widest uppercase mb-6"
-                style={{ color: "var(--muted)", fontWeight: 400 }}
-              >
+              <p className="tracking-widest uppercase mb-6"
+                style={{ color: "var(--muted)", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.12em" }}>
                 Lisa&rsquo;s take
               </p>
               <div style={{ fontSize: "1.05rem" }}>
@@ -208,8 +194,7 @@ export default async function NewsletterIssuePage({
 
           {/* Handoff line */}
           {issue.handoffLine && (
-            <p
-              className="my-10 text-sm tracking-widest uppercase"
+            <p className="my-10 text-sm tracking-widest uppercase"
               style={{
                 color: "var(--muted)",
                 fontWeight: 400,
@@ -217,8 +202,7 @@ export default async function NewsletterIssuePage({
                 borderBottom: "1px solid var(--border)",
                 padding: "1.5rem 0",
                 letterSpacing: "0.08em",
-              }}
-            >
+              }}>
               {issue.handoffLine}
             </p>
           )}
@@ -226,10 +210,8 @@ export default async function NewsletterIssuePage({
           {/* Week in fashion */}
           {issue.weekInFashion && issue.weekInFashion.length > 0 && (
             <section>
-              <p
-                className="text-xs tracking-widest uppercase mb-6"
-                style={{ color: "var(--muted)", fontWeight: 400 }}
-              >
+              <p className="tracking-widest uppercase mb-8"
+                style={{ color: "var(--foreground)", fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.12em" }}>
                 The week in fashion
               </p>
               {renderBlocks(issue.weekInFashion)}
@@ -237,22 +219,14 @@ export default async function NewsletterIssuePage({
           )}
 
           {/* Footer nav */}
-          <div
-            className="mt-16 pt-8 flex justify-between items-center"
-            style={{ borderTop: "1px solid var(--border)" }}
-          >
-            <Link
-              href="/newsletter"
-              className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
-              style={{ color: "var(--muted)", textDecoration: "none", fontWeight: 400 }}
-            >
+          <div className="mt-16 pt-8 flex justify-between items-center"
+            style={{ borderTop: "1px solid var(--border)" }}>
+            <Link href="/newsletter" className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
+              style={{ color: "var(--muted)", textDecoration: "none", fontWeight: 400 }}>
               ← All issues
             </Link>
-            <Link
-              href="/signup"
-              className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
-              style={{ color: "var(--muted)", textDecoration: "none", fontWeight: 400 }}
-            >
+            <Link href="/signup" className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
+              style={{ color: "var(--muted)", textDecoration: "none", fontWeight: 400 }}>
               Subscribe →
             </Link>
           </div>
@@ -262,4 +236,4 @@ export default async function NewsletterIssuePage({
       <Footer />
     </div>
   );
-}
+                    }

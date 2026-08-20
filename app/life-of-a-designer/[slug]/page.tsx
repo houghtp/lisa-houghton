@@ -43,28 +43,27 @@ function renderBlocks(blocks: any[]) {
       return <span key={j}>{text}</span>;
     });
     const style = block.style || "normal";
-    if (style === "h2") {
-      return (<h2 key={block._key || i} style={{ fontWeight: 600, fontSize: "1rem", lineHeight: 1.4, letterSpacing: "0.02em", marginTop: "2.5rem", marginBottom: "0.5rem" }}>{children}</h2>);
-    }
-    if (style === "blockquote") {
-      return (<blockquote key={block._key || i} style={{ borderLeft: "2px solid var(--border)", paddingLeft: "1.5rem", marginLeft: 0, marginTop: "1.5rem", marginBottom: "1.5rem", color: "var(--muted)", fontStyle: "italic" }}>{children}</blockquote>);
-    }
-    // Detect interview question: block text ends with "?"
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const blockText = (block.children || []).map((c: any) => c.text || "").join("").trim();
-    if (style === "normal" && blockText.endsWith("?")) {
+    // Interview questions are stored as h3
+    if (style === "h3") {
       return (
-        <p key={block._key || i} style={{
-          marginTop: "2.25rem",
-          marginBottom: "0.25rem",
+        <h3 key={block._key || i} style={{
           fontWeight: 600,
           fontSize: "0.95rem",
           lineHeight: 1.4,
           letterSpacing: "0.01em",
+          marginTop: "2.5rem",
+          marginBottom: "0.5rem",
+          fontFamily: "inherit",
         }}>
           {children}
-        </p>
+        </h3>
       );
+    }
+    if (style === "h2") {
+      return (<h2 key={block._key || i} style={{ fontWeight: 600, fontSize: "1.1rem", lineHeight: 1.35, letterSpacing: "0.01em", marginTop: "2.5rem", marginBottom: "0.5rem" }}>{children}</h2>);
+    }
+    if (style === "blockquote") {
+      return (<blockquote key={block._key || i} style={{ borderLeft: "2px solid var(--border)", paddingLeft: "1.5rem", marginLeft: 0, marginTop: "1.5rem", marginBottom: "1.5rem", color: "var(--muted)", fontStyle: "italic" }}>{children}</blockquote>);
     }
     return (<p key={block._key || i} style={{ marginTop: "1.25rem", lineHeight: 1.85, fontWeight: 300, fontSize: "1rem" }}>{children}</p>);
   });
@@ -132,4 +131,4 @@ export default async function LifePostPage({ params }: { params: Promise<{ slug:
       <Footer />
     </div>
   );
-      }
+}

@@ -71,13 +71,18 @@ function renderBlocks(blocks: any[]) {
         <h2
           key={block._key || i}
           style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 400,
-            fontSize: "1.4rem",
-            lineHeight: 1.2,
+            fontWeight: 600,
+            fontSize: "1rem",
+            lineHeight: 1.4,
+            letterSpacing: "0.02em",
             marginTop: "2.5rem",
-            marginBottom: "0.75rem",
+            marginBottom: "0.5rem",
           }}
+        >
+          {children}
+        </h2>
+      );
+    }}
         >
           {children}
         </h2>

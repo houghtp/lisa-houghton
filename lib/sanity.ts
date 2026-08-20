@@ -25,10 +25,9 @@ export const postBySlugQuery = groq`*[_type == "journalPost" && slug.current == 
   _id, title, slug, category, publishedAt, excerpt, coverImage, body, guestName, guestRole, guestImage
 }`;
 
-export const lifePostsQuery = groq`*[_type == "journalPost" && category == "Life of a Designer"] | order(publishedAt desc) {
-  _id, title, slug, category, publishedAt, excerpt, coverImage, guestName, guestRole, guestImage
+export const lifePostsQuery = groq`*[_type == "lifePost"] | order(publishedAt desc) {
+  _id, title, slug, publishedAt, excerpt, guestName, guestRole, guestImage, featured
 }`;
-
 export const fashionEventsQuery = groq`*[_type == "fashionEvent"] | order(startDate asc) {
   _id, name, city, startDate, endDate, note, officialLink
 }`;

@@ -130,7 +130,7 @@ export default async function LifeOfADesignerPage() {
               return (
                 <Link
                   key={post._id}
-                  href={`/journal/${post.slug.current}`}
+                  href={`/life-of-a-designer/${post.slug.current}`}
                   style={{ textDecoration: "none", color: "inherit" }}
                   className="group block"
                 >

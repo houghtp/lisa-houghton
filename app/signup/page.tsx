@@ -6,33 +6,21 @@ import { MLEmbed } from "../components/MLEmbed";
 export const metadata: Metadata = {
   title: "Newsletter - Lisa Houghton Studio",
   description:
-    "Four monthly newsletters from inside the fashion industry. No filler, no brand deals.",
+    "A weekly letter from inside the fashion industry. Lisa's take, then the week's news. No filler, no brand deals.",
 };
 
-const SENDS = [
+const WHAT_YOU_GET = [
   {
-    label: "The Month in Fashion",
-    freq: "Monthly",
+    label: "Lisa's take",
+    freq: "Weekly",
     description:
-      "The stories that mattered this month. Runway to retail, seen through twenty years of knowing what to pay attention to.",
+      "One thing worth an opinion each week. How the industry really works, where it's heading, and the things nobody tells you until it's too late.",
   },
   {
-    label: "Behind the Rail",
-    freq: "Monthly",
+    label: "The week in fashion",
+    freq: "Weekly",
     description:
-      "How the industry really works. Buying cycles, how decisions get made, and the things nobody tells you until it\'s too late.",
-  },
-  {
-    label: "The Forecast",
-    freq: "Monthly",
-    description:
-      "Trend direction before it becomes obvious. Where the industry is heading, and what to do with that knowledge.",
-  },
-  {
-    label: "The Edit",
-    freq: "Monthly",
-    description:
-      "How to build a wardrobe with intention. Written for designers and industry professionals, not the general public.",
+      "The stories that mattered. Runway to retail, filtered through twenty years of knowing what to pay attention to.",
   },
 ];
 
@@ -76,8 +64,8 @@ export default function SignupPage() {
             className="fade-up fade-up-3 text-base md:text-lg leading-loose"
             style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "34rem", marginBottom: "3rem" }}
           >
-            Four sends a month from someone who spent twenty years in buying, styling, and visual merchandising
-            at brands you know. Industry news, career advice, and the job market. Without the noise.
+            One email a week from someone who spent twenty years in buying, styling, and visual merchandising
+            at brands you know. My take on what actually matters, then the week&apos;s industry news. Without the noise.
           </p>
 
           {/* What you get */}
@@ -86,16 +74,16 @@ export default function SignupPage() {
               className="text-xs tracking-widest uppercase mb-6"
               style={{ color: "var(--muted)", fontWeight: 400 }}
             >
-              What&rsquo;s inside
+              What you get
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-              {SENDS.map((send, i) => (
+              {WHAT_YOU_GET.map((item, i) => (
                 <div
-                  key={send.label}
+                  key={item.label}
                   className="py-6 pr-8"
                   style={{
                     borderTop: "1px solid var(--border)",
-                    borderBottom: i >= SENDS.length - 2 ? "1px solid var(--border)" : "none",
+                    borderBottom: i >= WHAT_YOU_GET.length - 1 ? "1px solid var(--border)" : "none",
                   }}
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -106,7 +94,7 @@ export default function SignupPage() {
                         fontSize: "1.05rem",
                       }}
                     >
-                      {send.label}
+                      {item.label}
                     </span>
                     <span
                       className="text-xs tracking-widest uppercase"
@@ -117,14 +105,14 @@ export default function SignupPage() {
                         letterSpacing: "0.12em",
                       }}
                     >
-                      {send.freq}
+                      {item.freq}
                     </span>
                   </div>
                   <p
                     className="text-sm leading-loose"
                     style={{ color: "var(--muted)", fontWeight: 300 }}
                   >
-                    {send.description}
+                    {item.description}
                   </p>
                 </div>
               ))}
@@ -144,8 +132,15 @@ export default function SignupPage() {
               className="mt-5 text-xs leading-relaxed"
               style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "26rem" }}
             >
-              Four emails a month, free. No affiliate links, no brand deals, no sponsored content.
+              One email a week, free. No affiliate links, no brand deals, no sponsored content.
               Unsubscribe any time.
+            </p>
+            <p
+              className="mt-3 text-xs leading-relaxed"
+              style={{ color: "var(--muted)", fontWeight: 300, maxWidth: "26rem" }}
+            >
+              By subscribing you agree to receive marketing emails from Lisa Houghton Studio.
+              You can unsubscribe at any time.
             </p>
           </div>
 

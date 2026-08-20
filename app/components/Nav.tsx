@@ -6,13 +6,13 @@ import { useState } from "react";
 const NAV_LINKS = [
   { href: "/about", label: "About", exact: true },
   { href: "/#services", label: "Work with me", exact: true },
-  { href: "/journal", label: "Journal", exact: false },
+  { href: "/newsletter", label: "Newsletter", exact: false },
   { href: "/life-of-a-designer", label: "Life of a Designer", exact: true },
   { href: "/portfolio", label: "Portfolio", exact: true },
   { href: "/jobs", label: "Jobs", exact: true },
   { href: "/resources", label: "Resources", exact: true },
   { href: "/catwalk-calendar", label: "Calendar", exact: true },
-  { href: "/signup", label: "Newsletter", exact: true },
+  { href: "/signup", label: "Subscribe", exact: true },
 ];
 
 export function Nav({ active }: { active?: string }) {
